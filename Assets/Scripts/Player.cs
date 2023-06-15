@@ -39,24 +39,24 @@ public class Player : MonoBehaviour
         entradaHorizontal = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right*Time.deltaTime*velocidade*entradaHorizontal);
 
-        if ( transform.position.x  > 9.85f) {
-            transform.position = new Vector3(-9.85f,transform.position.y,0);
+        if ( transform.position.x  > 8f) {
+            transform.position = new Vector3(8f,transform.position.y,0);
         }
 
-        if ( transform.position.x  < -9.85f  ) {
-            transform.position = new Vector3(9.85f,transform.position.y,0);
+        if ( transform.position.x  < -8f  ) {
+            transform.position = new Vector3(-8f,transform.position.y,0);
         
         }
 
         entradaVertical = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.up*Time.deltaTime*(velocidade/2)*entradaVertical);
+        transform.Translate(Vector3.up*Time.deltaTime*(velocidade/1.2f)*entradaVertical);
 
-        if ( transform.position.y  > 0 ) {
-            transform.position = new Vector3(transform.position.x,0,0);
+        if ( transform.position.y  > 4.1f ) {
+            transform.position = new Vector3(transform.position.x,4.1f,0);
         }
 
-        if ( transform.position.y  < -3.95f  ) {
-            transform.position = new Vector3(transform.position.x,-3.95f,0);
+        if ( transform.position.y  < -4.1f  ) {
+            transform.position = new Vector3(transform.position.x,-4.1f,0);
         }
 
         if (Input.GetKeyDown(KeyCode.Space)){
@@ -65,32 +65,32 @@ public class Player : MonoBehaviour
             //Instantiate(pfLaser, transform.position + new Vector3(0,1.1f,0),Quaternion.identity);
         }
 
-        if(Input.GetKeyDown(KeyCode.1)){
+        if(Input.GetKeyDown(KeyCode.Q)){
             if(Cooldown < Time.time){
                 Element = 1;
-                Cooldown = Time.time + 1;
+                Cooldown = Time.time + 0.7f;
             }
         }
         
-        if(Input.GetKeyDown(KeyCode.2)){
+        if(Input.GetKeyDown(KeyCode.E)){
             if (Cooldown < Time.time){
                 Element = 2;
-                Cooldown = Time.time + 1;
+                Cooldown = Time.time + 0.7f;
             }
 
         }
 
-        if(Input.GetKeyDown(KeyCode.3)){
+        if(Input.GetKeyDown(KeyCode.R)){
             if (Cooldown <= Time.time) {
                 Element = 3;
-                Cooldown = Time.time + 1;
+                Cooldown = Time.time + 0.7f;
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.4)){
+        if(Input.GetKeyDown(KeyCode.F)){
             if (Cooldown <= Time.time) {
                 Element = 0;
-                Cooldown = Time.time + 1;
+                Cooldown = Time.time + 0.7f;
             }
         }
 
