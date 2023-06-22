@@ -8,13 +8,14 @@ public class Player : MonoBehaviour
     public float entradaHorizontal ;
     public float entradaVertical ;
 
-    public GameObject pfLaser ;
+    public GameObject Ataque;
     public Sprite water;
     public Sprite fire;
     public Sprite leaf;
     public Sprite rock;
     public float Element = 0f;
     float Cooldown = 0f;
+    float podeDisparar = 0f;
     //public SpriteRenderer spriteRenderer;
     //public Sprite newSprite;
 
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
         Debug.Log("Start de "+this.name);
         velocidade = 8.0f ;
         transform.position = new Vector3(0,0,0);
+        podeDisparar = Time.time;
         //m_SpriteRenderer = water;
     }
 
@@ -92,6 +94,18 @@ public class Player : MonoBehaviour
                 Element = 0;
                 Cooldown = Time.time + 0.7f;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ){
+
+            
+            if ( Time.time > podeDisparar ){
+
+            Instantiate( Ataque, transform.position + new Vector3(1f,0,0), Quaternion.identity);
+            podeDisparar = Time.time + 1f;
+
+            
+        }
         }
 
    }

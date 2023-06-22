@@ -12,7 +12,7 @@ public class BackGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        reposicao = 17.75f;
+        
        posicaoInicial = transform.position;
     }
 

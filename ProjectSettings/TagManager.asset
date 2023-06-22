@@ -47,3 +47,6 @@ TagManager:
   - name: Primeiro-Plano
     uniqueID: 3865766673
     locked: 0
+  - name: Projeteis
+    uniqueID: 3100843431
+    locked: 0
