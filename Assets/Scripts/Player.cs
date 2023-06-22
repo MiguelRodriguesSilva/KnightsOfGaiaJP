@@ -7,8 +7,12 @@ public class Player : MonoBehaviour
     public float velocidade = 0.0f ;
     public float entradaHorizontal ;
     public float entradaVertical ;
+    public float EstaAtirando;
 
-    public GameObject Ataque;
+    public GameObject Chamas;
+    public GameObject Jato;
+    public GameObject Pedregulho;
+    public GameObject Corte;
     public Sprite water;
     public Sprite fire;
     public Sprite leaf;
@@ -16,6 +20,7 @@ public class Player : MonoBehaviour
     public float Element = 0f;
     float Cooldown = 0f;
     float podeDisparar = 0f;
+    bool JatoVive;
     //public SpriteRenderer spriteRenderer;
     //public Sprite newSprite;
 
@@ -24,21 +29,21 @@ public class Player : MonoBehaviour
     void Start()
     {
         
-        //spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         Debug.Log("Start de "+this.name);
         velocidade = 8.0f ;
         transform.position = new Vector3(0,0,0);
         podeDisparar = Time.time;
-        //m_SpriteRenderer = water;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        JatoVive = Jato.GetComponent<Jato>.AindaVive;
         MudancaSprite();
+        EstaAtirando = Input.GetAxisRaw("Tiro");
 
-        entradaHorizontal = Input.GetAxis("Horizontal");
+        entradaHorizontal = Input.GetAxisRaw("Horizontal");
         transform.Translate(Vector3.right*Time.deltaTime*velocidade*entradaHorizontal);
 
         if ( transform.position.x  > 8f) {
@@ -50,7 +55,7 @@ public class Player : MonoBehaviour
         
         }
 
-        entradaVertical = Input.GetAxis("Vertical");
+        entradaVertical = Input.GetAxisRaw("Vertical");
         transform.Translate(Vector3.up*Time.deltaTime*(velocidade/1.2f)*entradaVertical);
 
         if ( transform.position.y  > 4.1f ) {
@@ -64,7 +69,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)){
 
             
-            //Instantiate(pfLaser, transform.position + new Vector3(0,1.1f,0),Quaternion.identity);
         }
 
         if(Input.GetKeyDown(KeyCode.Q)){
@@ -96,19 +100,11 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ){
+        MudancaTiros();
 
             
-            if ( Time.time > podeDisparar ){
 
-            Instantiate( Ataque, transform.position + new Vector3(1f,0,0), Quaternion.identity);
-            podeDisparar = Time.time + 1f;
-
-            
-        }
-        }
-
-   }
+    }
 
     private void MudancaSprite(){
 
@@ -127,5 +123,58 @@ public class Player : MonoBehaviour
         if (Element == 3){
            this.gameObject.GetComponent<SpriteRenderer>().sprite = leaf;
        }
-   }    
+   }
+
+   private void MudancaTiros(){
+    if (Element == 0){
+       if (Input.GetAxis("Tiro") > 0){
+
+            
+        if ( Time.time > podeDisparar ){
+
+        Instantiate( Chamas, transform.position + new Vector3(0,0,0), Quaternion.identity);
+        podeDisparar = Time.time + 1f;
+
+                }
+            }
+        }
+
+    if (Element == 1){
+       if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ){
+
+            
+        if ( Time.time > podeDisparar ){
+
+        Instantiate( Pedregulho, transform.position + new Vector3(0,0,0), Quaternion.identity);
+        podeDisparar = Time.time + 1f;
+
+                }
+            }
+        }
+
+    if (Element == 2){
+       if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ){     
+        if ( Time.time > podeDisparar ){
+            if ( Jato.GetComponent<Jato>.AindaVive == false)
+
+        Instantiate( Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
+        podeDisparar = Time.time + 1f;
+
+                }
+            }
+        }
+
+    if (Element == 3){
+       if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ){
+
+            
+        if ( Time.time > podeDisparar ){
+
+        Instantiate( Corte, transform.position + new Vector3(0,0,0), Quaternion.identity);
+        podeDisparar = Time.time + 1f;
+
+                }
+            }
+        }
+    }    
 }
