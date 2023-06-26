@@ -5,29 +5,34 @@ using UnityEngine;
 public class Jato : MonoBehaviour
 {
     float TempoVivo;
-    bool AindaVive;
+    bool PodeContinuar = true;
     // Start is called before the first frame update
     void Start()
-    {
-        AindaVive = True;
+    { 
         TempoVivo = Time.time + 0.3f;
         transform.position = transform.position + new Vector3(0.5f,0,0);
+        PodeContinuar = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Tiro") != 0){
-            transform.localScale = transform.localScale + new Vector3(0.3f,0,0) * Time.deltaTime;
 
+        if (Input.GetAxisRaw("Tiro") != 0){
+            if (transform.localScale.x >= 3){
+
+            transform.localScale = new Vector3(3,transform.localScale.y,1);
+            }
+            if (transform.localScale.x <= 3){
+            transform.localScale = transform.localScale + new Vector3(1,0,0) * Time.deltaTime;
+            }
         }
         else if (Input.GetAxisRaw("Tiro") == 0){
-            transform.localScale = transform.localScale + new Vector3(-0.3f,0,0) * Time.deltaTime;
+            transform.localScale = transform.localScale + new Vector3(-2,0,0) * Time.deltaTime;
             
         }
         if (transform.localScale.x <= 0){
-                AindaVive = false;
-                Destroy(this);
+                Destroy(this.gameObject);
             }
     }
 }

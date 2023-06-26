@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        JatoVive = Jato.GetComponent<Jato>.AindaVive;
+        //JatoVive = Jato.GetComponent<Jato>.AindaVive;
         MudancaSprite();
         EstaAtirando = Input.GetAxisRaw("Tiro");
 
@@ -64,11 +64,6 @@ public class Player : MonoBehaviour
 
         if ( transform.position.y  < -4.1f  ) {
             transform.position = new Vector3(transform.position.x,-4.1f,0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space)){
-
-            
         }
 
         if(Input.GetKeyDown(KeyCode.Q)){
@@ -155,11 +150,11 @@ public class Player : MonoBehaviour
     if (Element == 2){
        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ){     
         if ( Time.time > podeDisparar ){
-            if ( Jato.GetComponent<Jato>.AindaVive == false)
+       //     if ( Jato.GetComponent<Jato>.AindaVive == false){
 
         Instantiate( Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
         podeDisparar = Time.time + 1f;
-
+      //              }
                 }
             }
         }
