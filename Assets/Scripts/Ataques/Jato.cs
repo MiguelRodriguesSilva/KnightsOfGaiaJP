@@ -5,20 +5,19 @@ using UnityEngine;
 public class Jato : MonoBehaviour
 {
     float TempoVivo;
-    bool PodeContinuar = true;
     // Start is called before the first frame update
     void Start()
     { 
         TempoVivo = Time.time + 0.3f;
         transform.position = transform.position + new Vector3(0.5f,0,0);
-        PodeContinuar = true;
+        this.transform.parent = GameObject.Find("Jogador").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetAxisRaw("Tiro") != 0){
+        if (Input.GetButton("Tiro")){
             if (transform.localScale.x >= 3){
 
             transform.localScale = new Vector3(3,transform.localScale.y,1);
@@ -27,12 +26,13 @@ public class Jato : MonoBehaviour
             transform.localScale = transform.localScale + new Vector3(1,0,0) * Time.deltaTime;
             }
         }
-        else if (Input.GetAxisRaw("Tiro") == 0){
+        else{
             transform.localScale = transform.localScale + new Vector3(-2,0,0) * Time.deltaTime;
             
         }
         if (transform.localScale.x <= 0){
                 Destroy(this.gameObject);
             }
+        
     }
 }

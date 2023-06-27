@@ -20,9 +20,6 @@ public class Player : MonoBehaviour
     public float Element = 0f;
     float Cooldown = 0f;
     float podeDisparar = 0f;
-    bool JatoVive;
-    //public SpriteRenderer spriteRenderer;
-    //public Sprite newSprite;
 
     
     // Start is called before the first frame update
@@ -39,7 +36,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //JatoVive = Jato.GetComponent<Jato>.AindaVive;
         MudancaSprite();
         EstaAtirando = Input.GetAxisRaw("Tiro");
 
@@ -96,7 +92,6 @@ public class Player : MonoBehaviour
         }
 
         MudancaTiros();
-
             
 
     }
@@ -122,20 +117,20 @@ public class Player : MonoBehaviour
 
    private void MudancaTiros(){
     if (Element == 0){
-       if (Input.GetAxis("Tiro") > 0){
+       if (Input.GetButton("Tiro")){
 
             
         if ( Time.time > podeDisparar ){
 
-        Instantiate( Chamas, transform.position + new Vector3(0,0,0), Quaternion.identity);
+        Instantiate(Chamas, transform.position + new Vector3(0,-0.2f,0), Quaternion.identity);
         podeDisparar = Time.time + 1f;
-
                 }
+        podeDisparar = Time.time + 1f;
             }
         }
 
     if (Element == 1){
-       if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ){
+       if (Input.GetButton("Tiro")){
 
             
         if ( Time.time > podeDisparar ){
@@ -148,19 +143,18 @@ public class Player : MonoBehaviour
         }
 
     if (Element == 2){
-       if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ){     
+       if (Input.GetButton("Tiro")){  
         if ( Time.time > podeDisparar ){
-       //     if ( Jato.GetComponent<Jato>.AindaVive == false){
 
         Instantiate( Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
         podeDisparar = Time.time + 1f;
-      //              }
                 }
+        podeDisparar = Time.time + 1f;
             }
         }
 
     if (Element == 3){
-       if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ){
+       if (Input.GetButton("Tiro")){
 
             
         if ( Time.time > podeDisparar ){
