@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     public float EstaAtirando;
 
     public GameObject Chamas;
-    public GameObject Jato = new GameObject();
+    public GameObject Jato;
+    GameObject JatoSaindo;
     public GameObject Pedregulho;
     public GameObject Corte;
     public Sprite water;
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        JatoSaindo = GameObject.FindGameObjectWithTag("Jato");
         MudancaSprite();
         EstaAtirando = Input.GetAxisRaw("Tiro");
 
@@ -144,15 +146,14 @@ public class Player : MonoBehaviour
 
     if (Element == 2){
        if (Input.GetButton("Tiro")){  
-            if ( Time.time > podeDisparar ){
-                if (TempoVivo < Time.time){
-                    Instantiate( Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
+            if ( Time.time >= podeDisparar ){
+    //            if (TempoVivo < Time.time){
+                    Instantiate(Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
+    //          }
 
                 }
-
-                }
+            podeDisparar = JatoSaindo.transform.position.x + Time.time;
             }
-
         }
         
 
