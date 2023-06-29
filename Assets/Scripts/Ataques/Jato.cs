@@ -16,6 +16,7 @@ public class Jato : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TempoVivo = Time.time + transform.localScale.x;
 
         if (Input.GetButton("Tiro")){
             if (transform.localScale.x >= 3){

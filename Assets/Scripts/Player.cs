@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float EstaAtirando;
 
     public GameObject Chamas;
-    public GameObject Jato;
+    public GameObject Jato = new GameObject();
     public GameObject Pedregulho;
     public GameObject Corte;
     public Sprite water;
@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
         if ( Time.time > podeDisparar ){
 
         Instantiate( Pedregulho, transform.position + new Vector3(0,0,0), Quaternion.identity);
-        podeDisparar = Time.time + 1f;
+        podeDisparar = Time.time + 0.6f;
 
                 }
             }
@@ -144,14 +144,17 @@ public class Player : MonoBehaviour
 
     if (Element == 2){
        if (Input.GetButton("Tiro")){  
-        if ( Time.time > podeDisparar ){
+            if ( Time.time > podeDisparar ){
+                if (TempoVivo < Time.time){
+                    Instantiate( Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
 
-        Instantiate( Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
-        podeDisparar = Time.time + 1f;
                 }
-        podeDisparar = Time.time + 1f;
+
+                }
             }
+
         }
+        
 
     if (Element == 3){
        if (Input.GetButton("Tiro")){
