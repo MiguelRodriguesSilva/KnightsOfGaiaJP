@@ -8,10 +8,11 @@ public class Player : MonoBehaviour
     public float entradaHorizontal ;
     public float entradaVertical ;
     public float EstaAtirando;
+    private Rigidbody2D CorpoElemento;
+    private SpriteRenderer SpriteGeral;
 
     public GameObject Chamas;
     public GameObject Jato;
-    GameObject JatoSaindo;
     public GameObject Pedregulho;
     public GameObject Corte;
     public Sprite water;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     public float Element = 0f;
     float Cooldown = 0f;
     float podeDisparar = 0f;
+    float XJatoPlayer;
 
     
     // Start is called before the first frame update
@@ -31,13 +33,14 @@ public class Player : MonoBehaviour
         velocidade = 8.0f ;
         transform.position = new Vector3(0,0,0);
         podeDisparar = Time.time;
+        CorpoElemento = GetComponent<Rigidbody2D>();
+        SpriteGeral = GetComponent<SpriteRenderer>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        JatoSaindo = GameObject.FindGameObjectWithTag("Jato");
         MudancaSprite();
         EstaAtirando = Input.GetAxisRaw("Tiro");
 
@@ -145,26 +148,37 @@ public class Player : MonoBehaviour
         }
 
     if (Element == 2){
-       if (Input.GetButton("Tiro")){  
-            if ( Time.time >= podeDisparar ){
+       if (Input.GetButtonDown("Tiro")){  
+           if (XJatoPlayer == 0){
+                if ( Time.time >= podeDisparar ){
     //            if (TempoVivo < Time.time){
                     Instantiate(Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
+                    //if ( )
     //          }
-
+                     }
                 }
-            podeDisparar = JatoSaindo.transform.position.x + Time.time;
             }
         }
         
 
     if (Element == 3){
-       if (Input.GetButton("Tiro")){
+        if (Input.GetButton("Tiro")){
+            if (Corte.GetComponent<Corte>().JaFoiSpawnado == false){
+                if ( Time.time > podeDisparar ){
 
-            
-        if ( Time.time > podeDisparar ){
+                    Instantiate( Corte, transform.position + new Vector3(2,0,0), Quaternion.identity);
+                    podeDisparar = Time.time + 0.3f;
+                    Corte.GetComponent<Corte>().JaFoiSpawnado = true;
+                    }
+                }
 
-        Instantiate( Corte, transform.position + new Vector3(0,0,0), Quaternion.identity);
-        podeDisparar = Time.time + 1f;
+            if (Corte.GetComponent<Corte>().JaFoiSpawnado == true){
+                if ( Time.time > podeDisparar ){
+
+                    Instantiate( Corte, transform.position + new Vector3(2,0,0), Quaternion.identity);
+                    podeDisparar = Time.time + 0.3f;
+                    Corte.GetComponent<Corte>().JaFoiSpawnado = false;
+                    }
 
                 }
             }

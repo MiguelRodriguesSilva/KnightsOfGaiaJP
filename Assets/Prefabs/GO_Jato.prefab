@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 5310293288659273858}
   - component: {fileID: -5767069413104741297}
   - component: {fileID: -2069818548139934274}
+  - component: {fileID: 1898878356182567389}
   m_Layer: 0
   m_Name: GO_Jato
   m_TagString: Jato
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6503204097568512062
 Transform:
@@ -111,3 +112,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tempoJatoF: 0
+--- !u!61 &1898878356182567389
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619285834438272172}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.48, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0.5}
+    oldSize: {x: 2.96, y: 1.24}
+    newSize: {x: 0.62, y: 0.52}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.96, y: 1.24}
+  m_EdgeRadius: 0
