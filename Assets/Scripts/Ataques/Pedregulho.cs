@@ -13,7 +13,7 @@ public class Pedregulho : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * 10 * Time.deltaTime);
+        transform.Translate(Vector3.right * 20 * Time.deltaTime);
 
             if ( transform.position.x > 10.5f){
             Destroy(this.gameObject);

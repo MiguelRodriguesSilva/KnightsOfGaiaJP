@@ -21,18 +21,22 @@ public class Player : MonoBehaviour
     public Sprite rock;
     public float Element = 0f;
     float Cooldown = 0f;
-    float podeDisparar = 0f;
+    float[] podeDisparar = new float[4];
     float XJatoPlayer;
+    float TempoJato;
 
     
     // Start is called before the first frame update
     void Start()
     {
+        podeDisparar[0] = Time.time;
+        podeDisparar[1] = Time.time;
+        podeDisparar[2] = Time.time;
+        podeDisparar[3] = Time.time;
         
         Debug.Log("Start de "+this.name);
         velocidade = 8.0f ;
         transform.position = new Vector3(0,0,0);
-        podeDisparar = Time.time;
         CorpoElemento = GetComponent<Rigidbody2D>();
         SpriteGeral = GetComponent<SpriteRenderer>();
     }
@@ -41,6 +45,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(TempoJato);
         MudancaSprite();
         EstaAtirando = Input.GetAxisRaw("Tiro");
 
@@ -125,12 +130,12 @@ public class Player : MonoBehaviour
        if (Input.GetButton("Tiro")){
 
             
-        if ( Time.time > podeDisparar ){
+        if ( Time.time > podeDisparar[0] ){
 
         Instantiate(Chamas, transform.position + new Vector3(0,-0.2f,0), Quaternion.identity);
-        podeDisparar = Time.time + 1f;
+        podeDisparar[0] = Time.time + 1f;
                 }
-        podeDisparar = Time.time + 1f;
+        podeDisparar[0] = Time.time + 1f;
             }
         }
 
@@ -138,10 +143,10 @@ public class Player : MonoBehaviour
        if (Input.GetButton("Tiro")){
 
             
-        if ( Time.time > podeDisparar ){
+        if ( Time.time > podeDisparar[1] ){
 
         Instantiate( Pedregulho, transform.position + new Vector3(0,0,0), Quaternion.identity);
-        podeDisparar = Time.time + 0.6f;
+        podeDisparar[1] = Time.time + 0.6f;
 
                 }
             }
@@ -150,13 +155,24 @@ public class Player : MonoBehaviour
     if (Element == 2){
        if (Input.GetButtonDown("Tiro")){  
            if (XJatoPlayer == 0){
-                if ( Time.time >= podeDisparar ){
+                if ( Time.time >= podeDisparar[2] ){
     //            if (TempoVivo < Time.time){
                     Instantiate(Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
+                    TempoJato = Time.time + 1.5f;
                     //if ( )
     //          }
                      }
                 }
+            }
+            if(Input.GetButtonUp("Tiro")){
+                if(TempoJato > Time.time){
+                    podeDisparar[2] = Time.time + 2;
+                    
+                }
+                if((TempoJato + 4) < Time.time){
+                    podeDisparar[2] = Time.time + 3.5f;
+                }
+
             }
         }
         
@@ -164,19 +180,19 @@ public class Player : MonoBehaviour
     if (Element == 3){
         if (Input.GetButton("Tiro")){
             if (Corte.GetComponent<Corte>().JaFoiSpawnado == false){
-                if ( Time.time > podeDisparar ){
+                if ( Time.time > podeDisparar[3] ){
 
                     Instantiate( Corte, transform.position + new Vector3(2,0,0), Quaternion.identity);
-                    podeDisparar = Time.time + 0.3f;
+                    podeDisparar[3] = Time.time + 0.3f;
                     Corte.GetComponent<Corte>().JaFoiSpawnado = true;
                     }
                 }
 
             if (Corte.GetComponent<Corte>().JaFoiSpawnado == true){
-                if ( Time.time > podeDisparar ){
+                if ( Time.time > podeDisparar[3] ){
 
                     Instantiate( Corte, transform.position + new Vector3(2,0,0), Quaternion.identity);
-                    podeDisparar = Time.time + 0.3f;
+                    podeDisparar[3] = Time.time + 0.3f;
                     Corte.GetComponent<Corte>().JaFoiSpawnado = false;
                     }
 
