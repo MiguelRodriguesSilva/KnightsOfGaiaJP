@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Jato
+  - Enemy
+  - Ataque
   layers:
   - Default
   - TransparentFX
@@ -42,15 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Fundo
-    uniqueID: 203640157
+  - name: BackGround
+    uniqueID: 88616419
     locked: 0
-  - name: Primeiro-Plano
-    uniqueID: 3865766673
+  - name: Inimigos
+    uniqueID: 3757461653
     locked: 0
-  - name: Jogador
-    uniqueID: 3160613585
+  - name: "Proj\xE9teis"
+    uniqueID: 853001457
     locked: 0
-  - name: Projeteis
-    uniqueID: 3100843431
+  - name: Player
+    uniqueID: 5283889
+    locked: 0
+  - name: HUD
+    uniqueID: 716099571
     locked: 0

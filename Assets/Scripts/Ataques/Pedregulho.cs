@@ -17,6 +17,15 @@ public class Pedregulho : MonoBehaviour
 
             if ( transform.position.x > 10.5f){
             Destroy(this.gameObject);
-        }    
+        }
+    
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        
+        if (other.tag == "Enemy"){
+
+            Destroy(this.gameObject);
+        }
     }
 }

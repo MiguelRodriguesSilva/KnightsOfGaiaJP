@@ -5,14 +5,13 @@ using UnityEngine;
 public class Jato : MonoBehaviour
 {
     float TempoVivo;
-    public GameObject PlayerParaJato;
     // Start is called before the first frame update
     void Start()
     { 
         TempoVivo = Time.time + 0.3f;
         transform.position = transform.position + new Vector3(0.5f,0,0);
         this.transform.parent = GameObject.Find("Jogador").transform;
-        PlayerParaJato = GameObject.Find("Jogador");
+
     }
 
     // Update is called once per frame
@@ -36,6 +35,10 @@ public class Jato : MonoBehaviour
         if (transform.localScale.x <= 0){
                 Destroy(this.gameObject);
             }
+
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.R)){
+            Destroy(this.gameObject);
+        }
         
     }
 }

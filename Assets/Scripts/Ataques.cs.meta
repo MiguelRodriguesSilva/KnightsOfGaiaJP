@@ -3,7 +3,11 @@ guid: 80fe9fcdba7d3aa4fb22d5e517874340
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Pedregulho: {fileID: 5240222249228297521, guid: 053439399d6cb894aa9dcbe51f88a4b9, type: 3}
+  - Chamas: {fileID: 5240222249228297521, guid: dcec1fbabb206184aaebaf846cfd90cd, type: 3}
+  - Jato: {fileID: 5619285834438272172, guid: 43ffe073c4643e84982121b3b8f0424f, type: 3}
+  - Corte: {fileID: 5240222249228297521, guid: d7832270a745a0f45aa10b60bb489eb3, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

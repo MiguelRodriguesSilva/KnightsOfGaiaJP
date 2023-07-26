@@ -5,6 +5,7 @@ using UnityEngine;
 public class Chamas : MonoBehaviour
 {
     float TempoVivo = 0f;
+    float Dano;
     // Start is called before the first frame update
     void Start()
     {
