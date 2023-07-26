@@ -9,7 +9,11 @@ public class Enemy : MonoBehaviour
     public float DanoSofrido = 0;
     float ultimoDano;
     public float TempoDano = 0;
+    public bool podeSerDestruido = true;
     SpriteRenderer sprite;
+
+    [Header("Movimentacao")]
+    float velocidadeEnemy
 
     [Header("Barra de Vida")]
     public GameObject barraDaVida;
@@ -20,28 +24,51 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Random.Range(2f,10f) = velocidadeEnemy;
         TempoDano = 0;
         DanoSofrido = 0;
         ultimoDano = DanoSofrido;
         sprite = GetComponent<SpriteRenderer>();
         escalaBarra = barraVermelha.localScale;
         porcentVida = escalaBarra.x / LifeEnemy;
+    
     }
 
+    private void OnDestroy() {
+        Debug.Log("Teste");
+    }
 
     void UpdateBarraDeVida(){
 
-        escalaBarra.x = LifeEnemy * porcentVida;
         if (escalaBarra.x < 0){
-
-            escalaBarra.x = 0;
+            escalaBarra.x = 0;            
         }
+
         barraVermelha.localScale = escalaBarra;
+        
+    }
+
+    void MorteEnemy(){
+
+        Destroy(this.gameObject);
+    }
+
+    void MovimentoEnemy(){
+
         
     }
     // Update is called once per frame
     void Update()
     {
+
+        MovimentoEnemy
+
+        if (LifeEnemy <= 0){
+
+            MorteEnemy();
+        }
+
+
         if (DanoSofrido != 0){
             TempoDano = TempoDano + 1f * Time.deltaTime;
             UpdateBarraDeVida();

@@ -8,7 +8,7 @@ public class Jato : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        TempoVivo = Time.time + 0.3f;
+        TempoVivo = 0.2f;
         transform.position = transform.position + new Vector3(0.5f,0,0);
         this.transform.parent = GameObject.Find("Jogador").transform;
 
@@ -17,17 +17,19 @@ public class Jato : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TempoVivo = Time.time + transform.localScale.x;
+        TempoVivo = TempoVivo + 1 * Time.deltaTime;
 
         if (Input.GetButton("Tiro")){
-            if (transform.localScale.x >= 3){
 
+            if (transform.localScale.x >= 3){
             transform.localScale = new Vector3(3,transform.localScale.y,1);
             }
+            
             if (transform.localScale.x <= 3){
             transform.localScale = transform.localScale + new Vector3(1,0,0) * Time.deltaTime;
-            }
+            }            
         }
+
         else{
             transform.localScale = transform.localScale + new Vector3(-2,0,0) * Time.deltaTime;
             

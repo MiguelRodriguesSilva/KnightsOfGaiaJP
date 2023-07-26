@@ -133,6 +133,7 @@ public class Player : MonoBehaviour
    }
 
    private void MudancaTiros(){
+    //Chamas
     if (Element == 0){
        if (Input.GetButton("Tiro")){
 
@@ -146,6 +147,7 @@ public class Player : MonoBehaviour
             }
         }
 
+    // Pedregulhos
     if (Element == 1){
        if (Input.GetButton("Tiro")){
 
@@ -159,16 +161,15 @@ public class Player : MonoBehaviour
             }
         }
 
+
+    //Jato
     if (Element == 2){
             if (Input.GetButtonDown("Tiro")){  
                 if (JatoEstaVivo == false){
                     if ( Time.time >= podeDisparar[2] ){
-    //              if (TempoVivo < Time.time){
                         Instantiate(Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
                         TempoJato = 0.2f;
                         JatoEstaVivo = true;
-                        //if ( )
-    //              }
                         }
                 }
             }
@@ -180,13 +181,16 @@ public class Player : MonoBehaviour
 
             if (Input.GetAxisRaw("Tiro") == 1){
                 if( TempoJato > 0){
-                TempoJato = TempoJato + Time.deltaTime * 1;
+                    TempoJato = TempoJato + Time.deltaTime * 1;
+                
                 if(TempoJato >= 3f ){
 
                     TempoJato = 3f;
                     }
                 }
+                    
             }
+
 
             if (Input.GetAxisRaw("Tiro") == 0){
                 TempoJato = TempoJato - Time.deltaTime * 2;
@@ -199,7 +203,7 @@ public class Player : MonoBehaviour
             
         }
         
-
+    // Cortes
     if (Element == 3){
         if (Input.GetButton("Tiro")){
             if (Corte.GetComponent<Corte>().JaFoiSpawnado == false){
