@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1087028776078606606}
   - component: {fileID: 6408849574901938138}
-  - component: {fileID: 2715907115335567887}
-  - component: {fileID: -7023651472962000352}
-  - component: {fileID: 6796214634431621527}
-  - component: {fileID: 8905353297044762859}
+  - component: {fileID: 1398164512513093428}
+  - component: {fileID: -5043818915261726428}
+  - component: {fileID: 6351020866954566068}
+  - component: {fileID: 4541598525211451945}
+  - component: {fileID: 8968614007656952054}
   m_Layer: 0
-  m_Name: GO_Corte
+  m_Name: prefab_Ataques_Chamas
   m_TagString: Ataque
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 853001457
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 11e98e55865e62246ac0ed63e3ae9b9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 120a5a37efe3f2b40b0b401ae2e927c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,7 +89,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2715907115335567887
+--- !u!114 &1398164512513093428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240222249228297521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d346d00f5139a9942af0fadb5162a9d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &-5043818915261726428
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,34 +114,46 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.009885073, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.27, y: 2.51}
+    oldSize: {x: 3.43, y: 3.4}
     newSize: {x: 0.62, y: 0.52}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.27, y: 2.51}
+  m_Size: {x: 0.8599212, y: 3.4}
   m_EdgeRadius: 0
---- !u!114 &-7023651472962000352
-MonoBehaviour:
+--- !u!61 &6351020866954566068
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5240222249228297521}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d40a9f712f9377d4ab11b7cb8b9347ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nasceu: 0
-  JaFoiSpawnado: 0
---- !u!50 &6796214634431621527
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.014827311}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.43, y: 3.4}
+    newSize: {x: 0.62, y: 0.52}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.43, y: 0.82003605}
+  m_EdgeRadius: 0
+--- !u!50 &4541598525211451945
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -149,7 +174,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8905353297044762859
+--- !u!114 &8968614007656952054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,6 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80fe9fcdba7d3aa4fb22d5e517874340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dano: 15
-  qualAtaque: Corte
+  Dano: 10
+  qualAtaque: Chamas
   Constante: 0

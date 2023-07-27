@@ -30,8 +30,9 @@ public class Ataques : MonoBehaviour
             Inimigo = other.GetComponent<Enemy>();
             if (Inimigo != null){
                 if (Constante == true){
-                    Inimigo.LifeEnemy = Inimigo.LifeEnemy - Dano * Time.deltaTime;
+                    Inimigo.danoRecebido = Inimigo.danoRecebido + Dano * Time.deltaTime;
                     Inimigo.DanoSofrido = Inimigo.DanoSofrido + Dano * Time.deltaTime;
+                    Inimigo.tipoAtaque = qualAtaque;
 
                 }
                 
@@ -46,9 +47,9 @@ public class Ataques : MonoBehaviour
             Inimigo = other.GetComponent<Enemy>();
             if (Inimigo != null){
                 if (Constante == false){
-                    Inimigo.LifeEnemy = Inimigo.LifeEnemy - Dano;
+                    Inimigo.danoRecebido = Inimigo.danoRecebido + Dano;
                     Inimigo.DanoSofrido = Inimigo.DanoSofrido + Dano;
-
+                    Inimigo.tipoAtaque = qualAtaque;
                 }
 
                 //if (Constante == true){

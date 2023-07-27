@@ -5,15 +5,20 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Vida")]
-    public float LifeEnemy = 0;
+    public float originalLifeEnemy = 0;
+    public float lifeAtual = 0;
     public float DanoSofrido = 0;
+    public float danoRecebido = 0;
+    public float danoSentido = 0;
     float ultimoDano;
     public float TempoDano = 0;
     public bool podeSerDestruido = true;
     SpriteRenderer sprite;
 
     [Header("Movimentacao")]
-    float velocidadeEnemy
+    public float velocidadeEnemy = 9f;
+    public bool seraParado = false;
+    public bool vaiMudarVelocidade = false;
 
     [Header("Barra de Vida")]
     public GameObject barraDaVida;
@@ -21,16 +26,36 @@ public class Enemy : MonoBehaviour
     private Vector3 escalaBarra;
     private float porcentVida;
 
+    [Header("Resistencia e Fraqueza")]
+    public string resistenciaElemento;
+    public float valorResistencia;
+    public string fraquezaElemento;
+    public float valorFraqueza;
+    public string tipoAtaque;
+    public float quantidadeEscudo;
+    bool estaComEscudo;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        Random.Range(2f,10f) = velocidadeEnemy;
+        danoRecebido = 0;
+
+        if (vaiMudarVelocidade == true){
+            velocidadeEnemy = Random.Range(2,10);
+        }
+
         TempoDano = 0;
         DanoSofrido = 0;
         ultimoDano = DanoSofrido;
         sprite = GetComponent<SpriteRenderer>();
         escalaBarra = barraVermelha.localScale;
-        porcentVida = escalaBarra.x / LifeEnemy;
+        lifeAtual = originalLifeEnemy;
+        porcentVida = escalaBarra.x / lifeAtual;
+        if (quantidadeEscudo > 0){
+
+            estaComEscudo = true;
+        }
     
     }
 
@@ -44,6 +69,7 @@ public class Enemy : MonoBehaviour
             escalaBarra.x = 0;            
         }
 
+        escalaBarra.x = porcentVida * lifeAtual;
         barraVermelha.localScale = escalaBarra;
         
     }
@@ -54,22 +80,28 @@ public class Enemy : MonoBehaviour
     }
 
     void MovimentoEnemy(){
+        if (seraParado == false){
+            transform.Translate(Vector3.left * velocidadeEnemy * Time.deltaTime);
+
+        }
 
         
     }
     // Update is called once per frame
     void Update()
     {
+        MovimentoEnemy();
+        CalculoDeDano();
+        
 
-        MovimentoEnemy
-
-        if (LifeEnemy <= 0){
+        if (lifeAtual <= 0){
 
             MorteEnemy();
         }
 
 
-        if (DanoSofrido != 0){
+
+        if (danoRecebido != 0){
             TempoDano = TempoDano + 1f * Time.deltaTime;
             UpdateBarraDeVida();
 
@@ -92,5 +124,33 @@ public class Enemy : MonoBehaviour
             TempoDano = 0;
         }
 
+    }
+
+    void CalculoDeDano () {
+        if (tipoAtaque != resistenciaElemento && tipoAtaque != fraquezaElemento){
+
+            lifeAtual = originalLifeEnemy - danoRecebido;
+            Debug.Log("Ataque Normal");
+
+        }
+
+        if (tipoAtaque == resistenciaElemento){
+
+            lifeAtual = originalLifeEnemy - (danoRecebido - (danoRecebido * (valorResistencia / 100)));
+            Debug.Log("Ataque Com Resistencia");
+        }
+
+        if (tipoAtaque == fraquezaElemento){
+
+            lifeAtual = originalLifeEnemy - (danoRecebido + (danoRecebido * (valorFraqueza / 100)));
+            Debug.Log("Ataque Com Fraqueza");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other) {
+        if (other.tag == "Player"){
+
+
+        }
     }
 }
