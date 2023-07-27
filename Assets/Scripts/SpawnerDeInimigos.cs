@@ -25,22 +25,18 @@ public class SpawnerDeInimigos : MonoBehaviour
     public void Spawn()
     {
         
-        while ( inimigosRestantes > 0)
+        if (tempoSpawn > 3)
         {
-            if (tempoSpawn > 3)
-            {
 
-                tempoSpawn = 0;
-                localSpawn = Random.Range(4f , -4f);
-                for(int i = 0, i < quantidadeInimigosJuntos, i++ ){
-                    Instantiate(qualInimigo, new Vector3(transform.position.x, localSpawn, 0), Quaternion.identity);
-
-                }
-                
+            tempoSpawn = 0;
+            localSpawn = Random.Range(4f , -4f);
+            if (inimigosRestantes > 0){
+                Instantiate(qualInimigo, new Vector3(transform.position.x, localSpawn, 0), Quaternion.identity);
                 inimigosRestantes = inimigosRestantes - 1;
             }
-
+                   
         }
+
         
     }
 }
