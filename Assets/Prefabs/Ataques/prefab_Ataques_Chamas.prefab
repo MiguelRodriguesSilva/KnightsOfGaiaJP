@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -5043818915261726428}
   - component: {fileID: 6351020866954566068}
   - component: {fileID: 4541598525211451945}
-  - component: {fileID: 8968614007656952054}
   m_Layer: 0
   m_Name: prefab_Ataques_Chamas
   m_TagString: Ataque
@@ -101,6 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d346d00f5139a9942af0fadb5162a9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Dano: 10
+  qualAtaque: Chamas
+  Constante: 1
+  rotacao: 0
 --- !u!61 &-5043818915261726428
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,18 +177,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8968614007656952054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5240222249228297521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80fe9fcdba7d3aa4fb22d5e517874340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Dano: 10
-  qualAtaque: Chamas
-  Constante: 0

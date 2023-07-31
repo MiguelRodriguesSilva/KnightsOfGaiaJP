@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pedregulho : MonoBehaviour
+public class Pedregulho : Ataques
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        Dano = 32;
+        Constante = false;
+        qualAtaque = "Pedregulho";
     }
 
     // Update is called once per frame

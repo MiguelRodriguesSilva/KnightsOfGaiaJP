@@ -51,21 +51,11 @@ public class Ataques : MonoBehaviour
                     Inimigo.DanoSofrido = Inimigo.DanoSofrido + Dano;
                     Inimigo.tipoAtaque = qualAtaque;
                 }
-
-                //if (Constante == true){
-
-              //      cooldownzin = cooldownzin + 1 * Time.deltaTime;
-               // }
-                
+             
             }
 
         }
         
         
     }
-
-    private void OnTriggerExit2D(Collider2D other) {
-        
-    }
-    
 }

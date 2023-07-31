@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2715907115335567887}
   - component: {fileID: -7023651472962000352}
   - component: {fileID: 6796214634431621527}
-  - component: {fileID: 8905353297044762859}
   m_Layer: 0
   m_Name: prefab_Ataques_Corte
   m_TagString: Ataque
@@ -126,7 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40a9f712f9377d4ab11b7cb8b9347ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nasceu: 0
+  Dano: 15
+  qualAtaque: Corte
+  Constante: 0
   JaFoiSpawnado: 0
 --- !u!50 &6796214634431621527
 Rigidbody2D:
@@ -149,18 +150,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8905353297044762859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5240222249228297521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80fe9fcdba7d3aa4fb22d5e517874340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Dano: 15
-  qualAtaque: Corte
-  Constante: 0

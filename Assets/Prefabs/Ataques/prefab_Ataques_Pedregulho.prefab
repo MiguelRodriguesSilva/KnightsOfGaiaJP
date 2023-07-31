@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -4354912866018529528}
   - component: {fileID: 2371307874203154251}
   - component: {fileID: -8605846825831139717}
-  - component: {fileID: -6276655883049142978}
   m_Layer: 0
   m_Name: prefab_Ataques_Pedregulho
   m_TagString: Ataque
@@ -100,6 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b31e46ab68515f48b4a175a59a5f72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Dano: 32
+  qualAtaque: Pedregulho
+  Constante: 0
 --- !u!61 &2371307874203154251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,18 +149,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6276655883049142978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5240222249228297521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80fe9fcdba7d3aa4fb22d5e517874340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Dano: 32
-  qualAtaque: Pedregulho
-  Constante: 0

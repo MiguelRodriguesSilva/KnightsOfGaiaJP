@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chamas : MonoBehaviour
+public class Chamas : Ataques
 {
     float TempoVivo = 0f;
-    float Dano;
     public float rotacao;
     // Start is called before the first frame update
     void Start()
     {
+        qualAtaque = "Chamas";
+        Dano = 30f;
+        Constante = true;
         transform.localScale = new Vector3(1.5f,1.5f,1.5f);
         TempoVivo = Time.time + 1.2f;
         this.transform.parent = GameObject.Find("Jogador").transform;
@@ -38,4 +40,5 @@ public class Chamas : MonoBehaviour
         
         }        
     }
+
 }

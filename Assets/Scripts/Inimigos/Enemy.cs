@@ -40,11 +40,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         danoRecebido = 0;
-
-        if (vaiMudarVelocidade == true){
-            velocidadeEnemy = Random.Range(2,10);
-        }
-
         TempoDano = 0;
         DanoSofrido = 0;
         ultimoDano = DanoSofrido;

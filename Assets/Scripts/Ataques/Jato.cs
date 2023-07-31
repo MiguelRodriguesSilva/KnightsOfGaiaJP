@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jato : MonoBehaviour
+public class Jato : Ataques
 {
     float TempoVivo;
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+        Dano = 37.5f;
+        Constante = true;
+        qualAtaque = "Jato";
         TempoVivo = 0.2f;
         transform.position = transform.position + new Vector3(0.5f,0,0);
         this.transform.parent = GameObject.Find("Jogador").transform;

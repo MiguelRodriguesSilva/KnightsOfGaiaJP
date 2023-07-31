@@ -666,6 +666,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8272469604947605622, guid: 2684898168496604db0d392f2fa44058, type: 3}
+      propertyPath: seraParado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272469604947605622, guid: 2684898168496604db0d392f2fa44058, type: 3}
       propertyPath: valorResistencia
       value: 0
       objectReference: {fileID: 0}
