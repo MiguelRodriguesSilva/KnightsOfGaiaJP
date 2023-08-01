@@ -5,17 +5,14 @@ using UnityEngine;
 public class Ataques : MonoBehaviour
 {
     public float Dano;
-    float cooldownzin;
     public string qualAtaque;
     public bool Constante;
-    bool EstaDentro;
     Enemy Inimigo;
 
 
     // Start is called before the first frame update
     void Start()
-    {
-        cooldownzin = 0;
+    { 
         
     }
 

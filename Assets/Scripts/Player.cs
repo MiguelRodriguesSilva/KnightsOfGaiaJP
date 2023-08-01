@@ -28,10 +28,12 @@ public class Player : MonoBehaviour
     public float Element = 0f;
     float Cooldown = 0f;
     float[] podeDisparar = new float[4];
-    bool JatoEstaVivo;
-    float TempoJato;
 
-    
+    float tempoJatoTotal;
+    float tempoJato;
+    bool jatoEstaVivo = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,8 +41,6 @@ public class Player : MonoBehaviour
         podeDisparar[1] = Time.time;
         podeDisparar[2] = Time.time;
         podeDisparar[3] = Time.time;
-        TempoJato = 0.5f;
-        JatoEstaVivo = false;
         
         Debug.Log("Start de "+this.name);
         velocidade = 8.0f ;
@@ -79,34 +79,6 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(transform.position.x,-4.1f,0);
         }
 
-        if(Input.GetKeyDown(KeyCode.Q)){
-            if(Cooldown < Time.time){
-                Element = 1;
-                Cooldown = Time.time + 0.7f;
-            }
-        }
-        
-        if(Input.GetKeyDown(KeyCode.E)){
-            if (Cooldown < Time.time){
-                Element = 2;
-                Cooldown = Time.time + 0.7f;
-            }
-
-        }
-
-        if(Input.GetKeyDown(KeyCode.R)){
-            if (Cooldown <= Time.time) {
-                Element = 3;
-                Cooldown = Time.time + 0.7f;
-            }
-        }
-
-        if(Input.GetKeyDown(KeyCode.F)){
-            if (Cooldown <= Time.time) {
-                Element = 0;
-                Cooldown = Time.time + 0.7f;
-            }
-        }
 
         MudancaTiros();
             
@@ -115,7 +87,47 @@ public class Player : MonoBehaviour
 
     private void MudancaSprite(){
 
-       if (Element == 0){
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (Cooldown < Time.time)
+            {
+                Element = 1;
+                Cooldown = Time.time + 0.7f;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Cooldown < Time.time)
+            {
+                Element = 2;
+                Cooldown = Time.time + 0.7f;
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (Cooldown <= Time.time)
+            {
+                Element = 3;
+                Cooldown = Time.time + 0.7f;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (Cooldown <= Time.time)
+            {
+                Element = 0;
+                Cooldown = Time.time + 0.7f;
+            }
+        }
+
+
+
+        if (Element == 0){
            this.gameObject.GetComponent<SpriteRenderer>().sprite = fire;
        }
 
@@ -130,7 +142,9 @@ public class Player : MonoBehaviour
         if (Element == 3){
            this.gameObject.GetComponent<SpriteRenderer>().sprite = leaf;
        }
-   }
+
+        
+    }
 
    private void MudancaTiros(){
     //Chamas
@@ -165,40 +179,43 @@ public class Player : MonoBehaviour
     //Jato
     if (Element == 2){
             if (Input.GetButtonDown("Tiro")){  
-                if (JatoEstaVivo == false){
-                    if ( Time.time >= podeDisparar[2] ){
+                if (jatoEstaVivo == false){
                         Instantiate(Jato, transform.position + new Vector3(0,0,0), Quaternion.identity);
-                        TempoJato = 0.2f;
-                        JatoEstaVivo = true;
-                        }
-                }
+                        tempoJato = 0.2f;
+                        jatoEstaVivo = true;
+                        tempoJatoTotal = 0f;
+                    }
             }
 
-            if(Input.GetButtonUp("Tiro")){
-                podeDisparar[2] = Time.time + TempoJato;
+            tempoJatoTotal = tempoJatoTotal + 1 * Time.deltaTime;
 
-            }
-
-            if (Input.GetAxisRaw("Tiro") == 1){
-                if( TempoJato > 0){
-                    TempoJato = TempoJato + Time.deltaTime * 1;
-                
-                if(TempoJato >= 3f ){
-
-                    TempoJato = 3f;
+            if (tempoJatoTotal < 5f)
+            {
+                if (Input.GetAxisRaw("Tiro") == 1)
+                {
+                    tempoJato = tempoJato + 3f * Time.deltaTime;
+                    if (tempoJato > 3f)
+                    {
+                        tempoJato = 3f;
                     }
                 }
-                    
-            }
 
-
-            if (Input.GetAxisRaw("Tiro") == 0){
-                TempoJato = TempoJato - Time.deltaTime * 2;
-                if(TempoJato < 1){
-
-                    JatoEstaVivo = false;
+                if (Input.GetAxisRaw("Tiro") == 0)
+                {
+                    tempoJato = tempoJato - 4f * Time.deltaTime;
+                    if (tempoJato < 0f)
+                    {
+                        jatoEstaVivo = false;
+                    }
                 }
-
+            }
+            else if (tempoJatoTotal > 5f)
+            {
+                tempoJato = tempoJato - 4f * Time.deltaTime;
+                if (tempoJato < -1f)
+                {
+                    jatoEstaVivo = false;
+                }
             }
             
         }
@@ -226,5 +243,5 @@ public class Player : MonoBehaviour
                 }
             }
         }
-    }    
+    } 
 }

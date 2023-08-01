@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Corte : Ataques
+public class Corte : MonoBehaviour
 {
     private float Nasceu;
     private SpriteRenderer SCorte;
@@ -11,9 +11,6 @@ public class Corte : Ataques
     // Start is called before the first frame update
     void Start()
     {
-        Dano = 15f;
-        Constante = false;
-        qualAtaque = "Corte";
         MudancaSprite();
     }
 

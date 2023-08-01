@@ -125,20 +125,17 @@ public class Enemy : MonoBehaviour
         if (tipoAtaque != resistenciaElemento && tipoAtaque != fraquezaElemento){
 
             lifeAtual = originalLifeEnemy - danoRecebido;
-            Debug.Log("Ataque Normal");
 
         }
 
         if (tipoAtaque == resistenciaElemento){
 
             lifeAtual = originalLifeEnemy - (danoRecebido - (danoRecebido * (valorResistencia / 100)));
-            Debug.Log("Ataque Com Resistencia");
         }
 
         if (tipoAtaque == fraquezaElemento){
 
             lifeAtual = originalLifeEnemy - (danoRecebido + (danoRecebido * (valorFraqueza / 100)));
-            Debug.Log("Ataque Com Fraqueza");
         }
     }
 

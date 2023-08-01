@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pedregulho : Ataques
+public class Pedregulho : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Dano = 32;
-        Constante = false;
-        qualAtaque = "Pedregulho";
+
     }
 
     // Update is called once per frame
@@ -22,6 +20,7 @@ public class Pedregulho : Ataques
         }
     
     }
+    
 
     private void OnTriggerEnter2D(Collider2D other) {
         

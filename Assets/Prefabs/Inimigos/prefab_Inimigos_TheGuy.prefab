@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8272469604947605620}
   - component: {fileID: 8272469604947605621}
   - component: {fileID: 8272469604947606410}
-  - component: {fileID: 7381268933986304997}
+  - component: {fileID: 8543509432844487713}
   m_Layer: 0
   m_Name: prefab_Inimigos_TheGuy
   m_TagString: Enemy
@@ -219,7 +219,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7381268933986304997
+--- !u!114 &8543509432844487713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8272469604947605623}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66fb7993131b79c4986f15a199f38dbd, type: 3}
+  m_Script: {fileID: 11500000, guid: 9471321252ee6ae4c9915d5e6974dffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   originalLifeEnemy: 0
@@ -241,8 +241,8 @@ MonoBehaviour:
   velocidadeEnemy: 9
   seraParado: 0
   vaiMudarVelocidade: 0
-  barraDaVida: {fileID: 0}
-  barraVermelha: {fileID: 0}
+  barraDaVida: {fileID: 8272469605612316068}
+  barraVermelha: {fileID: 8272469604046696892}
   resistenciaElemento: 
   valorResistencia: 0
   fraquezaElemento: 

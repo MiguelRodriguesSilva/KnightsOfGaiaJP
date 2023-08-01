@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jato : Ataques
+public class Jato : MonoBehaviour
 {
     float TempoVivo;
     // Start is called before the first frame update
     void Start()
     {
-        Dano = 37.5f;
-        Constante = true;
-        qualAtaque = "Jato";
-        TempoVivo = 0.2f;
+        TempoVivo = 0;
         transform.position = transform.position + new Vector3(0.5f,0,0);
         this.transform.parent = GameObject.Find("Jogador").transform;
 
@@ -22,20 +19,32 @@ public class Jato : Ataques
     {
         TempoVivo = TempoVivo + 1 * Time.deltaTime;
 
-        if (Input.GetButton("Tiro")){
+        if (TempoVivo < 5f)
+        {
+            if (Input.GetButton("Tiro"))
+            {
 
-            if (transform.localScale.x >= 3){
-            transform.localScale = new Vector3(3,transform.localScale.y,1);
+                if (transform.localScale.x >= 3)
+                {
+                    transform.localScale = new Vector3(3, transform.localScale.y, 1);
+                }
+
+                if (transform.localScale.x <= 3)
+                {
+                    transform.localScale = transform.localScale + new Vector3(3, 0, 0) * Time.deltaTime;
+                }
             }
-            
-            if (transform.localScale.x <= 3){
-            transform.localScale = transform.localScale + new Vector3(1,0,0) * Time.deltaTime;
-            }            
         }
 
-        else{
-            transform.localScale = transform.localScale + new Vector3(-2,0,0) * Time.deltaTime;
+        if (Input.GetAxisRaw("Tiro") == 0){
+            transform.localScale = transform.localScale + new Vector3(-4,0,0) * Time.deltaTime;
             
+        }
+
+        else if (TempoVivo > 5f)
+        {
+            transform.localScale = transform.localScale + new Vector3(-4, 0, 0) * Time.deltaTime;
+
         }
         if (transform.localScale.x <= 0){
                 Destroy(this.gameObject);

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5767069413104741297}
   - component: {fileID: 1898878356182567389}
   - component: {fileID: -4264475011768985204}
+  - component: {fileID: 4653185621976147228}
   m_Layer: 0
   m_Name: prefab_Ataques_Jato
   m_TagString: Ataque
@@ -149,3 +150,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4653185621976147228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619285834438272172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80fe9fcdba7d3aa4fb22d5e517874340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dano: 37.5
+  qualAtaque: Jato
+  Constante: 1
