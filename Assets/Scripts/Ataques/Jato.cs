@@ -5,7 +5,16 @@ using UnityEngine;
 public class Jato : MonoBehaviour
 {
     float TempoVivo;
-    // Start is called before the first frame update
+    [SerializeField] float quantiEspecial;
+    private PlayerAction action;
+    private PlayerAttack player;
+
+
+    private void Awake()
+    {
+        action = FindObjectOfType<PlayerAction>();
+        player = FindObjectOfType<PlayerAttack>();
+    }
     void Start()
     {
         TempoVivo = 0;
@@ -14,14 +23,15 @@ public class Jato : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void FixedUpdate()
     {
+        player.specialATQConti += quantiEspecial * Time.deltaTime;
         TempoVivo = TempoVivo + 1 * Time.deltaTime;
 
         if (TempoVivo < 5f)
         {
-            if (Input.GetButton("Tiro"))
+            if (action.input.PlayerMove.Tiro.IsPressed())
             {
 
                 if (transform.localScale.x >= 3)
@@ -36,7 +46,7 @@ public class Jato : MonoBehaviour
             }
         }
 
-        if (Input.GetAxisRaw("Tiro") == 0){
+        if (!action.input.PlayerMove.Tiro.IsPressed()){
             transform.localScale = transform.localScale + new Vector3(-4,0,0) * Time.deltaTime;
             
         }

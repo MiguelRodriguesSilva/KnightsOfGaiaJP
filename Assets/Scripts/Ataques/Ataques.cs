@@ -7,20 +7,7 @@ public class Ataques : MonoBehaviour
     public float Dano;
     public string qualAtaque;
     public bool Constante;
-    Enemy Inimigo;
-
-
-    // Start is called before the first frame update
-    void Start()
-    { 
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private Enemy Inimigo;
 
     private void OnTriggerStay2D(Collider2D other) {
         if (other.tag == "Enemy"){

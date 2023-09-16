@@ -7,18 +7,29 @@ public class Corte : MonoBehaviour
 {
     private float Nasceu;
     private SpriteRenderer SCorte;
-    public bool JaFoiSpawnado;
-    // Start is called before the first frame update
+    static bool JaFoiSpawnado = false;
+
     void Start()
     {
         MudancaSprite();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Time.time > Nasceu){
+        if (Time.time > Nasceu)
+        {
+
+            if (JaFoiSpawnado == false)
+            {
+                JaFoiSpawnado = true;
+            }
+            else
+            {
+                JaFoiSpawnado = false;
+            }
+
             Destroy(this.gameObject);
+            
 
         }
     }

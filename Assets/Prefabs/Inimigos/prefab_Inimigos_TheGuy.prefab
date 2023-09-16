@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 8272469604947605621}
   - component: {fileID: 8272469604947606410}
   - component: {fileID: 8543509432844487713}
+  - component: {fileID: -5783770880611268198}
   m_Layer: 0
   m_Name: prefab_Inimigos_TheGuy
   m_TagString: Enemy
@@ -226,7 +227,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8272469604947605623}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9471321252ee6ae4c9915d5e6974dffc, type: 3}
   m_Name: 
@@ -249,6 +250,20 @@ MonoBehaviour:
   valorFraqueza: 0
   tipoAtaque: 
   quantidadeEscudo: 0
+--- !u!114 &-5783770880611268198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272469604947605623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac35b277bfc3dc1439ea4f6c8edc3c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DanoAttack: 0
+  DanoEncostar: 20
 --- !u!1 &8272469605045016153
 GameObject:
   m_ObjectHideFlags: 0

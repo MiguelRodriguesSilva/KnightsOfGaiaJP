@@ -5,8 +5,17 @@ using UnityEngine;
 public class Chamas : MonoBehaviour
 {
     float TempoVivo = 0f;
+    [SerializeField] float quantiEspecial;
     public float rotacao;
-    // Start is called before the first frame update
+    private PlayerAction action;
+    private PlayerAttack player;
+
+    private void Awake()
+    {
+        action = FindObjectOfType<PlayerAction>();
+        player = FindObjectOfType<PlayerAttack>();
+    }
+ 
     void Start()
     {
         transform.localScale = new Vector3(1.5f,1.5f,1.5f);
@@ -15,23 +24,33 @@ public class Chamas : MonoBehaviour
         rotacao = 1f;
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    void FixedUpdate()
     {
+        player.specialATQConti += quantiEspecial * Time.deltaTime;
         rotacao = rotacao + 0.5f * Time.deltaTime;
         if (rotacao > 1.5f){
 
             rotacao = 1.5f;
         }
+
         transform.Rotate(Vector3.back * (360 * rotacao) * Time.deltaTime);
         if (Time.time > TempoVivo){
             Destroy(this.gameObject);
 
         }
-        if (Input.GetButton("Tiro")){
+
+
+        if (action.input.PlayerMove.Tiro.IsPressed())
+        {
                 TempoVivo = Time.time + 1f;
-            }
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.E)){
+        }
+
+
+        if (action.input.TrocarElement.Agua.WasPressedThisFrame() || 
+            action.input.TrocarElement.Folha.WasPressedThisFrame() || 
+            action.input.TrocarElement.Pedra.WasPressedThisFrame())
+        {
 
             TempoVivo = Time.time - 2f;
         

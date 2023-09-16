@@ -101,7 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d346d00f5139a9942af0fadb5162a9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotacao: 0
+  quantiEspecial: 0.5
+  rotacao: 1
 --- !u!61 &-5043818915261726428
 BoxCollider2D:
   m_ObjectHideFlags: 0

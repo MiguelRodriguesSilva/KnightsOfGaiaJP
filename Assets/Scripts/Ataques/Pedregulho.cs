@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class Pedregulho : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float speed, quantiEspecial;
+    private PlayerAttack player;
+
+    private void Awake()
     {
+        player = FindObjectOfType<PlayerAttack>();
+    }
+    private void Start()
+    {
+        player.specialATQConti += quantiEspecial;
 
     }
-
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(Vector3.right * 20 * Time.deltaTime);
+        transform.Translate(Vector3.right * speed * Time.deltaTime);
 
-            if ( transform.position.x > 10.5f){
+        if ( transform.position.x > 10.5f)
+        {
             Destroy(this.gameObject);
         }
     
@@ -24,7 +30,8 @@ public class Pedregulho : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         
-        if (other.tag == "Enemy"){
+        if (other.tag == "Enemy")
+        {
 
             Destroy(this.gameObject);
         }
