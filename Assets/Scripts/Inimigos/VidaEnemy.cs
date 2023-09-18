@@ -6,13 +6,14 @@ public class VidaEnemy : MonoBehaviour
 {
     [SerializeField] float vidaMax, vidaAtual, resisQuant, fraqQuant;
     [SerializeField] string resisTipo, fraqTipo;
+    [SerializeField] bool podeSerDestruido = true;
 
     private void Start()
     {
         vidaAtual = vidaMax;
     }
 
-    public void Dano(int dano, string tipoDano)
+    public void Dano(float dano, string tipoDano)
     {
         if (tipoDano == resisTipo)
         {
@@ -27,6 +28,21 @@ public class VidaEnemy : MonoBehaviour
         if ((tipoDano != fraqTipo && tipoDano != resisTipo) || (resisTipo == "" && fraqTipo == ""))
         {
             vidaAtual -= dano;
+        }
+
+        VerificacaoMorte();
+        
+    }
+
+    public void VerificacaoMorte()
+    {
+        if (podeSerDestruido == true)
+        {
+            if (vidaAtual < 0)
+            {
+                Destroy(this.gameObject);
+            }
+
         }
         
     }

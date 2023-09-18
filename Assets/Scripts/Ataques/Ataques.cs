@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class Ataques : MonoBehaviour
 {
-    public float Dano;
-    public string qualAtaque;
-    public bool Constante;
-    private Enemy Inimigo;
+    [SerializeField] float dano, quantiEspecial;
+    [SerializeField] string qualAtaque;
+    [SerializeField] bool constante;
+    private VidaEnemy inimigo;
+    private PlayerAttack player;
+
+
+    private void Awake()
+    {
+        player = FindObjectOfType<PlayerAttack>();
+    }
+
 
     private void OnTriggerStay2D(Collider2D other) {
         if (other.tag == "Enemy"){
-            Inimigo = other.GetComponent<Enemy>();
-            if (Inimigo != null){
-                if (Constante == true){
-                    Inimigo.danoRecebido = Inimigo.danoRecebido + Dano * Time.deltaTime;
-                    Inimigo.DanoSofrido = Inimigo.DanoSofrido + Dano * Time.deltaTime;
-                    Inimigo.tipoAtaque = qualAtaque;
+            inimigo = other.GetComponent<VidaEnemy>();
+            if (inimigo != null){
+                if (constante == true){
+                    inimigo.Dano(dano * Time.deltaTime, qualAtaque);
+                    player.specialATQConti += quantiEspecial * Time.deltaTime;
 
                 }
                 
@@ -28,12 +35,12 @@ public class Ataques : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
           
         if (other.tag == "Enemy"){
-            Inimigo = other.GetComponent<Enemy>();
-            if (Inimigo != null){
-                if (Constante == false){
-                    Inimigo.danoRecebido = Inimigo.danoRecebido + Dano;
-                    Inimigo.DanoSofrido = Inimigo.DanoSofrido + Dano;
-                    Inimigo.tipoAtaque = qualAtaque;
+            inimigo = other.GetComponent<VidaEnemy>();
+            if (inimigo != null){
+                if (constante == false){
+                    inimigo.Dano(dano, qualAtaque);
+                    player.specialATQConti += quantiEspecial;
+
                 }
              
             }

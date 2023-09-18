@@ -5,15 +5,12 @@ using UnityEngine;
 public class Jato : MonoBehaviour
 {
     float TempoVivo;
-    [SerializeField] float quantiEspecial;
     private PlayerAction action;
-    private PlayerAttack player;
 
 
     private void Awake()
     {
-        action = FindObjectOfType<PlayerAction>();
-        player = FindObjectOfType<PlayerAttack>();
+        action = FindObjectOfType<PlayerAction>();;
     }
     void Start()
     {
@@ -26,7 +23,6 @@ public class Jato : MonoBehaviour
 
     void FixedUpdate()
     {
-        player.specialATQConti += quantiEspecial * Time.deltaTime;
         TempoVivo = TempoVivo + 1 * Time.deltaTime;
 
         if (TempoVivo < 5f)

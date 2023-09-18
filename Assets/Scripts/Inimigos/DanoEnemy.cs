@@ -5,7 +5,8 @@ using UnityEngine;
 public class DanoEnemy : MonoBehaviour
 {
     private PlayerVida player;
-    [SerializeField] int DanoAttack, DanoEncostar;
+    public int danoAttack, danoEncostar;
+
 
 
     private void Awake()
@@ -17,6 +18,10 @@ public class DanoEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player.SofrerDano(DanoEncostar);
+        if (collision.tag == "Player")
+        {
+            player.SofrerDano(danoEncostar);
+        }
+        
     }
 }

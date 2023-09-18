@@ -5,20 +5,16 @@ using UnityEngine;
 public class Chamas : MonoBehaviour
 {
     float TempoVivo = 0f;
-    [SerializeField] float quantiEspecial;
     public float rotacao;
     private PlayerAction action;
-    private PlayerAttack player;
 
     private void Awake()
     {
         action = FindObjectOfType<PlayerAction>();
-        player = FindObjectOfType<PlayerAttack>();
     }
  
     void Start()
     {
-        transform.localScale = new Vector3(1.5f,1.5f,1.5f);
         TempoVivo = Time.time + 1.2f;
         this.transform.parent = GameObject.Find("Jogador").transform;
         rotacao = 1f;
@@ -27,7 +23,6 @@ public class Chamas : MonoBehaviour
     
     void FixedUpdate()
     {
-        player.specialATQConti += quantiEspecial * Time.deltaTime;
         rotacao = rotacao + 0.5f * Time.deltaTime;
         if (rotacao > 1.5f){
 

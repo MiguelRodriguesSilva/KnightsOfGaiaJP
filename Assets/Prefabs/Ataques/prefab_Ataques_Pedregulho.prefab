@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  quantiEspecial: 0.7
 --- !u!61 &2371307874203154251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80fe9fcdba7d3aa4fb22d5e517874340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dano: 32
+  dano: 32
+  quantiEspecial: 0.7
   qualAtaque: Pedregulho
-  Constante: 0
+  constante: 0

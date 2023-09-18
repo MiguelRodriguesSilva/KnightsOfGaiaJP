@@ -126,10 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40a9f712f9377d4ab11b7cb8b9347ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dano: 15
-  qualAtaque: Corte
-  Constante: 0
-  JaFoiSpawnado: 1
 --- !u!50 &6796214634431621527
 Rigidbody2D:
   serializedVersion: 4
@@ -163,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80fe9fcdba7d3aa4fb22d5e517874340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dano: 15
+  dano: 45
+  quantiEspecial: 0.5
   qualAtaque: Corte
-  Constante: 0
+  constante: 0
