@@ -7,12 +7,14 @@ public class PlayerVida : MonoBehaviour
     public float vidaAtual, vidaMax;
     private VidaHUD hud;
     [SerializeField] float tempoInvuneravel;
+    private Animator barraDeVida;
     private float contador;
 
 
     private void Awake()
     {
         hud = FindObjectOfType<VidaHUD>();
+        barraDeVida = GameObject.Find("VidaPlayer").GetComponent<Animator>();
     }
 
     private void Start()
@@ -50,6 +52,7 @@ public class PlayerVida : MonoBehaviour
 
     public void AumentoVida(int aumentoVida)
     {
+
         vidaMax += aumentoVida;
         vidaAtual += aumentoVida;
         hud.TrocaPorcent();

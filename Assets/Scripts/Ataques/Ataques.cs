@@ -18,10 +18,13 @@ public class Ataques : MonoBehaviour
 
 
     private void OnTriggerStay2D(Collider2D other) {
-        if (other.tag == "Enemy"){
+        if (other.tag == "Enemy")
+        {
             inimigo = other.GetComponent<VidaEnemy>();
-            if (inimigo != null){
-                if (constante == true){
+            if (inimigo != null)
+            {
+                if (constante == true)
+                {
                     inimigo.Dano(dano * Time.deltaTime, qualAtaque);
                     player.specialATQConti += quantiEspecial * Time.deltaTime;
 
@@ -34,10 +37,13 @@ public class Ataques : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
           
-        if (other.tag == "Enemy"){
+        if (other.tag == "Enemy")
+        {
             inimigo = other.GetComponent<VidaEnemy>();
-            if (inimigo != null){
-                if (constante == false){
+            if (inimigo != null)
+            {
+                if (constante == false)
+                {
                     inimigo.Dano(dano, qualAtaque);
                     player.specialATQConti += quantiEspecial;
 
