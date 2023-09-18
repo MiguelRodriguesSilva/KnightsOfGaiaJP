@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ataque
+  - Projetil
   layers:
   - Default
   - TransparentFX

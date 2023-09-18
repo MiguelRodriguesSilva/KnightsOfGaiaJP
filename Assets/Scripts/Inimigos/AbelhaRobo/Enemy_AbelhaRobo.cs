@@ -7,8 +7,8 @@ public class Enemy_AbelhaRobo : MonoBehaviour
     [SerializeField] float danoFerrao, danoEncostar, danoAvanco, tempoAcao;
     [SerializeField] GameObject ferrao;
     [SerializeField] GameObject posicaoFerrao;
-    public bool atirouFerrao;
-    private float contiAcao = 0;
+    public bool podeAtirar = false;
+    public float contiAcao = 0;
     private int qualAcao = 0;
     private DanoEnemy danoAbelha;
 
@@ -36,7 +36,10 @@ public class Enemy_AbelhaRobo : MonoBehaviour
         
         if (contiAcao > tempoAcao)
         {
-            qualAcao = Random.Range(1, 3);
+            if (qualAcao == 0)
+            {
+                qualAcao = Random.Range(1, 3);
+            }
             if (qualAcao == 1)
             {
                 AtirarFerrao();
@@ -47,23 +50,24 @@ public class Enemy_AbelhaRobo : MonoBehaviour
                 AtacarAvanco();
             }
 
-            qualAcao = 0;
-            contiAcao = 0;
         }
     }
 
-    void AtirarFerrao()
+    public void AtirarFerrao()
     {
-        if (atirouFerrao == false)
+        GetComponent<Animator>().Play("AtirandoEspinho");
+        if (podeAtirar == true)
         {
             Debug.Log("Atirou o ferrao");
-            GetComponent<Animator>().Play("AtirandoEspinho");
             Vector3 player = FindObjectOfType<PlayerMove>().transform.position;
             Vector2 direction = (player - transform.position).normalized;
             GameObject ferraoInst;
             ferraoInst = Instantiate(ferrao, posicaoFerrao.transform.position, Quaternion.identity);
             ferraoInst.GetComponent<Enemy_AbelhaRobo_Ferrao>().direction = direction;
-            atirouFerrao = true;
+            podeAtirar = false;
+            qualAcao = 0;
+            contiAcao = 0;
+            
         }
         
     }
@@ -71,5 +75,7 @@ public class Enemy_AbelhaRobo : MonoBehaviour
     void AtacarAvanco()
     {
         Debug.Log("Avancou");
+        qualAcao = 0;
+        contiAcao = 0;
     }
 }
