@@ -24,6 +24,11 @@ public class Enemy_AbelhaRobo_Ferrao : MonoBehaviour
     private void FixedUpdate()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
+
+        if (transform.position.x < -9)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
