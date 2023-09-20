@@ -128,6 +128,14 @@ public class PlayerAttack : MonoBehaviour
         {
             podeAtirar = true;
         }
+
+        if (tiro != null)
+        {
+            if (tiro.GetComponent<AguaPlus>() == true)
+            {
+            tiro = null;
+            }
+        }
         
     }
 

@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80fe9fcdba7d3aa4fb22d5e517874340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dano: 96
+  dano: 96
+  quantiEspecial: 0
   qualAtaque: Pedregulho
-  Constante: 0
+  constante: 0

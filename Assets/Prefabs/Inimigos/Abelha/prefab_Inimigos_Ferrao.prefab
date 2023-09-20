@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danoDoFerrao: 0
-  speed: 15
+  speed: 25
   direction: {x: 0, y: 0}
 --- !u!1 &6798931405993972859
 GameObject:

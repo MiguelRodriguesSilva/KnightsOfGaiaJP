@@ -6,7 +6,7 @@ using UnityEngine;
 public class Corte : MonoBehaviour
 {
     private float Nasceu;
-    private SpriteRenderer SCorte;
+    [SerializeField] SpriteRenderer SCorte;
     static bool JaFoiSpawnado = false;
 
     void Start()
@@ -36,16 +36,8 @@ public class Corte : MonoBehaviour
 
     void MudancaSprite()
     {
-        SCorte = GetComponent<SpriteRenderer>();
         Nasceu = Time.time + 0.3f;
-        if (JaFoiSpawnado == true)
-        {
-            SCorte.flipY = true;
-        }
-        if (JaFoiSpawnado == false)
-        {
-            SCorte.flipY = false;
-        }
+        SCorte.flipY = JaFoiSpawnado;
 
     }
 }

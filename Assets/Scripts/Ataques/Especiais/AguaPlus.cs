@@ -6,7 +6,6 @@ public class AguaPlus : MonoBehaviour
 {
     private PlayerVida player;
     [SerializeField] int curaTotal, curaPorSegundo;
-    private float cura;
 
     private void Awake()
     {
@@ -21,10 +20,10 @@ public class AguaPlus : MonoBehaviour
     IEnumerator VidaPorSegundo()
     {
         yield return new WaitForSeconds(1f);
-        for (int i = 0; i <= curaTotal; i++)
+        for (int i = 0; i <= curaTotal; i += curaPorSegundo)
         {
             player.Curar(curaPorSegundo);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(Time.deltaTime);
 
         }
         Destroy(this.gameObject);

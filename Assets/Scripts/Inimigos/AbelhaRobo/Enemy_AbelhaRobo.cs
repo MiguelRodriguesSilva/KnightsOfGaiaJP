@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Enemy_AbelhaRobo : MonoBehaviour
 {
-    [SerializeField] float danoFerrao, danoEncostar, danoAvanco, tempoAcao;
+    [SerializeField] float danoFerrao, danoEncostar, danoAvanco, tempoAcao, acaocd;
     [SerializeField] GameObject ferrao;
     [SerializeField] GameObject posicaoFerrao;
+    [SerializeField] float speedAbelha;
     public bool podeAtirar = false;
     public float contiAcao = 0;
-    private int qualAcao = 0;
+    public int qualAcao = 0;
     private DanoEnemy danoAbelha;
+    private Enemy_AbelhaRobo_Avanco avanco;
 
     private void Awake()
     {
+        avanco = GetComponent<Enemy_AbelhaRobo_Avanco>();
         danoAbelha = GetComponent<DanoEnemy>();
         danoEncostar = danoAbelha.danoEncostar;
     }
@@ -21,7 +24,8 @@ public class Enemy_AbelhaRobo : MonoBehaviour
     private void Start()
     {
         contiAcao = 0;
-        
+
+        MudarTempo();
     }
 
     private void FixedUpdate()
@@ -47,7 +51,7 @@ public class Enemy_AbelhaRobo : MonoBehaviour
 
             if (qualAcao == 2)
             {
-                AtacarAvanco();
+                avanco.enabled = true;
             }
 
         }
@@ -65,6 +69,7 @@ public class Enemy_AbelhaRobo : MonoBehaviour
             ferraoInst = Instantiate(ferrao, posicaoFerrao.transform.position, Quaternion.identity);
             ferraoInst.GetComponent<Enemy_AbelhaRobo_Ferrao>().direction = direction;
             podeAtirar = false;
+            MudarTempo();
             qualAcao = 0;
             contiAcao = 0;
             
@@ -72,10 +77,8 @@ public class Enemy_AbelhaRobo : MonoBehaviour
         
     }
 
-    void AtacarAvanco()
+    public void MudarTempo()
     {
-        Debug.Log("Avancou");
-        qualAcao = 0;
-        contiAcao = 0;
+        tempoAcao = Random.Range(acaocd - 2f, acaocd + 2f);
     }
 }

@@ -229,8 +229,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5809694780494401125}
   m_Bounds:
-    m_Center: {x: -0.0006799698, y: 0.0011800528, z: -4.656613e-10}
-    m_Extent: {x: 1.0293199, y: 0.67754, z: 0}
+    m_Center: {x: -0.0006799698, y: 0.0011800528, z: 2.3283064e-10}
+    m_Extent: {x: 1.02932, y: 0.67754006, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 7696494238100754352}
   m_Layer: 0
   m_Name: prefab_Inimigos_AbelhaRobo
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,8 +464,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 4286441162967889245}
   m_Bounds:
-    m_Center: {x: 0.00012499094, y: -0.0010449886, z: -4.656613e-10}
-    m_Extent: {x: 0.51838493, y: 0.54263496, z: 0}
+    m_Center: {x: 0.00012499094, y: -0.0010450482, z: 2.3283064e-10}
+    m_Extent: {x: 0.518385, y: 0.54263496, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -573,8 +573,8 @@ MonoBehaviour:
   - {fileID: 8496444792342667546}
   - {fileID: 5689760235533495228}
   m_Bounds:
-    m_Center: {x: -0.00000071525574, y: -0.000000059604645, z: -4.656613e-10}
-    m_Extent: {x: 0.8700005, y: 0.63500017, z: 0}
+    m_Center: {x: -0.00000071525574, y: 0.00000029802322, z: 2.3283064e-10}
+    m_Extent: {x: 0.8700006, y: 0.6350001, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -680,8 +680,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5335903026414253851}
   m_Bounds:
-    m_Center: {x: 0.00019404292, y: -0.000000059604645, z: -4.656613e-10}
-    m_Extent: {x: 0.38384494, y: 0.29499993, z: 0}
+    m_Center: {x: 0.00019308925, y: 0.00000071525574, z: 2.3283064e-10}
+    m_Extent: {x: 0.38384494, y: 0.29499996, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -787,8 +787,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 2773944502545830515}
   m_Bounds:
-    m_Center: {x: -0.0016359389, y: -0.58837, z: -4.656613e-10}
-    m_Extent: {x: 0.36836502, y: 0.58732, z: 0}
+    m_Center: {x: -0.0016349852, y: -0.58836985, z: 2.3283064e-10}
+    m_Extent: {x: 0.36836505, y: 0.5873201, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -808,9 +808,10 @@ GameObject:
   - component: {fileID: 9104271289929340142}
   - component: {fileID: 8699127852816962789}
   - component: {fileID: 8699127852816962788}
+  - component: {fileID: 645829978}
   m_Layer: 0
   m_Name: Skin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -868,10 +869,13 @@ MonoBehaviour:
   danoEncostar: 20
   danoAvanco: 60
   tempoAcao: 2
+  acaocd: 3
   ferrao: {fileID: 1691632744634076046, guid: 64db0630e02f74c4987be2e5f39ebe0e, type: 3}
   posicaoFerrao: {fileID: 1006954278}
+  speedAbelha: 0
   podeAtirar: 0
   contiAcao: 0
+  qualAcao: 0
 --- !u!114 &7375151169164440239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,13 +920,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3f5f4bbd3322c4da74ba24215f6a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  podeSerDestruido: 1
   vidaMax: 200
   vidaAtual: 200
   resisQuant: 0
   fraqQuant: 0
   resisTipo: 
   fraqTipo: 
-  podeSerDestruido: 1
+  qualInimigo: Abelha Robo
+  boss: 0
+  faceInimigo: {fileID: -1236208961, guid: c95a2617299ccd04fba12ce49a2fd463, type: 3}
+  hud: {fileID: 0}
 --- !u!61 &8699127852816962789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -939,10 +947,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.71}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.77, y: 0.59}
+    newSize: {x: 0.77, y: 0.59}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -970,6 +978,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &645829978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699127852816962791}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f9947f8aafb64468340dd1a8eb1607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Avanco: 20
 --- !u!1 &8699127853488014491
 GameObject:
   m_ObjectHideFlags: 0

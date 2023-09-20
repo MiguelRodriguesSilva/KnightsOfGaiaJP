@@ -160,6 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dano: 20
-  quantiEspecial: 0.8
+  quantiEspecial: 1.5
   qualAtaque: Jato
   constante: 1
