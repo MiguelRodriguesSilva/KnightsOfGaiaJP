@@ -12,13 +12,4 @@ public class Level01 : MonoBehaviour
         conti = GetComponent<ContagemInimigos>();
         troca = FindObjectOfType<TrocaCenario>();
     }
-    private void Update()
-    {
-        if (quantiIinimigos[0] == conti.inimigos[0])
-        {
-            troca.TrocarLevel(2);
-            conti.Reset();
-            enabled = false;
-        }
-    }
 }

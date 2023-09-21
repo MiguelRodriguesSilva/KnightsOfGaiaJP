@@ -53,6 +53,7 @@ public class VidaEnemy : MonoBehaviour
             {
                 ContagemInimigos contagem = FindObjectOfType<ContagemInimigos>();
                 contagem.inimigos[indexInimigo] += 1;
+                contagem.Verificacao();
                 vidaAtual = 0;
                 Destroy(this.gameObject);
             }

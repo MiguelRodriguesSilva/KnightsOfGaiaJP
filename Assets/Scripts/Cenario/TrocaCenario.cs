@@ -12,7 +12,6 @@ public class TrocaCenario : MonoBehaviour
     {
         levelsController = GameObject.Find("Levels");
         l1 = levelsController.GetComponent<Level01>();
-        arvores = GameObject.Find("Arvores");
     }
 
     private void Start()
