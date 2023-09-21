@@ -11,9 +11,11 @@ public class VidaEnemy : MonoBehaviour
 
     [Header("Identificacao")]
     [SerializeField] string qualInimigo;
+    [SerializeField] int indexInimigo;
     [SerializeField] bool boss = false;
     public Sprite faceInimigo;
     [SerializeField] VidaInimigoHUD hud;
+
 
     private void Start()
     {
@@ -49,6 +51,8 @@ public class VidaEnemy : MonoBehaviour
         {
             if (vidaAtual < 0)
             {
+                ContagemInimigos contagem = FindObjectOfType<ContagemInimigos>();
+                contagem.inimigos[indexInimigo] += 1;
                 vidaAtual = 0;
                 Destroy(this.gameObject);
             }

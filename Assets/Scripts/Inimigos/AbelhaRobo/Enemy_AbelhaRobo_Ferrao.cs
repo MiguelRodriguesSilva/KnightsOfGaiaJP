@@ -42,7 +42,7 @@ public class Enemy_AbelhaRobo_Ferrao : MonoBehaviour
 
             if (collision.tag == "Player")
             {
-                this.gameObject.SetActive(false);
+                Destroy(this.gameObject);
             }
         }
         

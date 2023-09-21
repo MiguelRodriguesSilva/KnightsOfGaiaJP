@@ -17,9 +17,16 @@ public class BackGround : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        float novaPosicao = Mathf.Repeat(Time.time * velocidade , reposicao );
-        transform.position = posicaoInicial + Vector3.left * novaPosicao ;
+        /*float novaPosicao = Mathf.Repeat(Time.time * velocidade , reposicao );
+        transform.position = posicaoInicial + Vector3.left * novaPosicao ;*/
+
+        transform.Translate(Vector2.left * velocidade * Time.deltaTime);
+
+        if (transform.position.x < posicaoInicial.x - reposicao)
+        {
+            transform.position = new Vector2(posicaoInicial.x, transform.position.y);
+        }
     }
 }

@@ -93,5 +93,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd3315865a2dc045a5605760a5d4795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curaTotal: 75
+  curaTotal: 100
   curaPorSegundo: 5

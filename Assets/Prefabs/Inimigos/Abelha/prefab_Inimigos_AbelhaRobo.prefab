@@ -229,8 +229,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5809694780494401125}
   m_Bounds:
-    m_Center: {x: -0.0006799698, y: 0.0011800528, z: 2.3283064e-10}
-    m_Extent: {x: 1.02932, y: 0.67754006, z: 0}
+    m_Center: {x: -0.0006799698, y: 0.0011800528, z: -4.656613e-10}
+    m_Extent: {x: 1.0293199, y: 0.67754, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -354,7 +354,7 @@ Transform:
   m_GameObject: {fileID: 4659765462570766625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.29, y: 1.4476014, z: -0.0061622295}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4870053394603787656}
@@ -464,8 +464,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 4286441162967889245}
   m_Bounds:
-    m_Center: {x: 0.00012499094, y: -0.0010450482, z: 2.3283064e-10}
-    m_Extent: {x: 0.518385, y: 0.54263496, z: 0}
+    m_Center: {x: 0.00012499094, y: -0.0010449886, z: -4.656613e-10}
+    m_Extent: {x: 0.51838493, y: 0.54263496, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -573,8 +573,8 @@ MonoBehaviour:
   - {fileID: 8496444792342667546}
   - {fileID: 5689760235533495228}
   m_Bounds:
-    m_Center: {x: -0.00000071525574, y: 0.00000029802322, z: 2.3283064e-10}
-    m_Extent: {x: 0.8700006, y: 0.6350001, z: 0}
+    m_Center: {x: -0.00000011920929, y: -0.0000005364418, z: -4.656613e-10}
+    m_Extent: {x: 0.8700006, y: 0.6350002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5335903026414253851}
   m_Bounds:
-    m_Center: {x: 0.00019308925, y: 0.00000071525574, z: 2.3283064e-10}
+    m_Center: {x: 0.0001949966, y: 0.00000017881393, z: -4.656613e-10}
     m_Extent: {x: 0.38384494, y: 0.29499996, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -787,8 +787,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 2773944502545830515}
   m_Bounds:
-    m_Center: {x: -0.0016349852, y: -0.58836985, z: 2.3283064e-10}
-    m_Extent: {x: 0.36836505, y: 0.5873201, z: 0}
+    m_Center: {x: -0.0016349852, y: -0.58836997, z: -4.656613e-10}
+    m_Extent: {x: 0.368365, y: 0.58731997, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
