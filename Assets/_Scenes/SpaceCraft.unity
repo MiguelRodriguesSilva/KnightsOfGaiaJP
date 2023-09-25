@@ -385,6 +385,7 @@ Transform:
   - {fileID: 196955057}
   - {fileID: 615253515}
   - {fileID: 21745214}
+  - {fileID: 902385763}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -402,7 +403,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelsController: {fileID: 1471837532}
   arvores: {fileID: 158618115}
-  l1: {fileID: 1471837533}
+  velocSubindo: 5
+  ceu: {fileID: 21745212}
+  levels:
+  - {fileID: 11400000, guid: 791d320f5d5ba2249a53de9524d3c6aa, type: 2}
 --- !u!1 &118862202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,6 +1704,64 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &902385762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 902385763}
+  - component: {fileID: 902385765}
+  m_Layer: 0
+  m_Name: Colisores
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &902385763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902385762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.68, y: -1.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 97207637}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &902385765
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902385762}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -9, y: -5}
+  - {x: -9, y: -5}
+  - {x: 9, y: -5}
+  - {x: 9, y: 5}
+  - {x: -9, y: 5}
+  - {x: -9, y: -5}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &939787839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,7 +2216,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 5240222249228297521, guid: bc7039ce9a91901499f8e0534f4a4ed4, type: 3}
   - {fileID: 5611618176716774867, guid: 4c274f5ebfc4bcb4295d20c6d1941716, type: 3}
-  - {fileID: 0}
+  - {fileID: 8665676327612889538, guid: b6e408861897d334a9bb7cf92db0db6a, type: 3}
   ataqueNormal:
   - {fileID: 5240222249228297521, guid: dcec1fbabb206184aaebaf846cfd90cd, type: 3}
   - {fileID: 5240222249228297521, guid: 053439399d6cb894aa9dcbe51f88a4b9, type: 3}
@@ -2460,8 +2522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce699eb99e96e7545b2f3841ed25b83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  qualInimigo: {fileID: 4659765462570766625, guid: 5ae4b236270b26e41b867b8d94485488, type: 3}
-  inimigosRestantes: 3
+  qualInimigo: {fileID: 6362957215153288106, guid: 62fe243298616684eae5d11f9cef5b5b, type: 3}
+  inimigosRestantes: 5
   quantidadeInimigosJuntos: 0
 --- !u!4 &1220119711
 Transform:
@@ -2843,7 +2905,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1471837535}
   - component: {fileID: 1471837534}
-  - component: {fileID: 1471837533}
   m_Layer: 0
   m_Name: Levels
   m_TagString: Untagged
@@ -2851,21 +2912,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1471837533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471837532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7b06ffd3c496543b6dcaea3cf80cfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quantiIinimigos: 03000000
-  conti: {fileID: 1471837534}
-  troca: {fileID: 97207638}
 --- !u!114 &1471837534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2879,7 +2925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inimigos: 0000000000000000
-  inimNecessario: 0300000000000000
+  inimNecessario: 0500000000000000
 --- !u!4 &1471837535
 Transform:
   m_ObjectHideFlags: 0

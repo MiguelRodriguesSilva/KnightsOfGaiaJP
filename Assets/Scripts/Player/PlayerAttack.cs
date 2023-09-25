@@ -110,7 +110,7 @@ public class PlayerAttack : MonoBehaviour
                         GameObject ataqueMudado = tipoAtaque[tipoElemento];
                         int qualElementoMudado = tipoElemento;
                         tipoAtaque[tipoElemento] = ataqueEspecial[tipoElemento];
-                        tiro = Instantiate(tipoAtaque[tipoElemento], transform.position, Quaternion.identity);
+                        Instantiate(tipoAtaque[tipoElemento], transform.position, Quaternion.identity);
                         podeAtirar = false;
                         tipoAtaque[qualElementoMudado] = ataqueMudado;
                         tiroEspecial = false;

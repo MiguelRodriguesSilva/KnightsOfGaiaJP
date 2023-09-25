@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SpawnerDeInimigos : MonoBehaviour
 {
-    public GameObject qualInimigo;
-    public int inimigosRestantes = 3;
+    public GameObject[] qualInimigo;
+    public int[] inimigosRestantes;
     public int quantidadeInimigosJuntos;
-    float localSpawn;
+    [SerializeField] float cdSpawn;
+    int localSpawn;
     float tempoSpawn;
     // Start is called before the first frame update
     void Start()
@@ -18,22 +19,23 @@ public class SpawnerDeInimigos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tempoSpawn = tempoSpawn + 1 * Time.deltaTime;
-        Spawn();
+        tempoSpawn = tempoSpawn + cdSpawn * Time.deltaTime;
+        SpawnAbelha();
     }
 
-    public void Spawn()
+    public void SpawnAbelha()
     {
         
         if (tempoSpawn > 3)
         {
-
+            int ultimoSpawn = localSpawn;
             tempoSpawn = 0;
-            localSpawn = Random.Range(4f , -4f);
-            if (inimigosRestantes > 0){
+            localSpawn = Random.Range(4 , -4);
+            if (inimigosRestantes[0] > 0){
                 Instantiate(qualInimigo, new Vector3(transform.position.x, localSpawn, 0), Quaternion.identity);
-                inimigosRestantes = inimigosRestantes - 1;
+                inimigosRestantes[0] -= 1;
             }
+            
                    
         }
 

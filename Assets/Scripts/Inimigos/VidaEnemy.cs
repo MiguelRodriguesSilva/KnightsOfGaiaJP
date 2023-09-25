@@ -12,7 +12,7 @@ public class VidaEnemy : MonoBehaviour
     [Header("Identificacao")]
     [SerializeField] string qualInimigo;
     [SerializeField] int indexInimigo;
-    [SerializeField] bool boss = false;
+    [SerializeField] public bool boss = false;
     public Sprite faceInimigo;
     [SerializeField] VidaInimigoHUD hud;
 

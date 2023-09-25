@@ -35,7 +35,7 @@ public class ContagemInimigos : MonoBehaviour
         }
     }
 
-    public void Reset()
+    public void ResetQuanti()
     {
         for (int i = 0; i < inimigos.Length; i++)
         {

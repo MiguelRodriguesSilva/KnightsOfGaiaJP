@@ -6,18 +6,22 @@ public class TrocaCenario : MonoBehaviour
 {
     public static int levelAtual;
     [SerializeField] GameObject levelsController, arvores;
-    [SerializeField] Level01 l1;
+    [SerializeField] float velocSubindo;
+    [SerializeField] BackGround ceu;
+    [SerializeField] Level01[] levels;
+    [SerializeField] SpawnerDeInimigos spawns;
+    private float speedCeu;
 
     private void Awake()
     {
         levelsController = GameObject.Find("Levels");
-        l1 = levelsController.GetComponent<Level01>();
     }
 
     private void Start()
     {
         arvores.SetActive(false);
         levelAtual = 1;
+        speedCeu = ceu.velocidade;
     }
     public void TrocarLevel(int levelNovo)
     {
@@ -25,17 +29,49 @@ public class TrocaCenario : MonoBehaviour
         if (levelAtual == 1)
         {
             arvores.SetActive(false);
-            l1.enabled = true;
+            spawns.
         }
 
         if (levelAtual == 2)
         {
             Debug.Log("Teoricamente deu certo");
+            StartCoroutine(Level2());
         }
 
         if (levelAtual == 3)
         {
+            StartCoroutine(Level3());
             arvores.SetActive(true);
+        }
+        levelsController.GetComponent<ContagemInimigos>().ResetQuanti();
+    }
+
+    IEnumerator Level2()
+    {
+        while (transform.position.y > -13f)
+        {
+            transform.Translate(Vector2.down * velocSubindo * Time.deltaTime);
+            ceu.velocidade += Time.deltaTime;
+            if (ceu.velocidade > 3)
+            {
+                ceu.velocidade = 3;
+            }
+            yield return new WaitForSeconds(Time.deltaTime);
+            
+        }
+    }
+
+    IEnumerator Level3()
+    {
+        while (transform.position.y < 1f)
+        {
+            transform.Translate(Vector2.up * velocSubindo * Time.deltaTime);
+            ceu.velocidade -= Time.deltaTime;
+            if (ceu.velocidade < 0.1f)
+            {
+                ceu.velocidade = 0.1f;
+            }
+            yield return new WaitForSeconds(Time.deltaTime);
         }
     }
 

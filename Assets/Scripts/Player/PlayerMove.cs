@@ -21,5 +21,25 @@ public class PlayerMove : MonoBehaviour
 
         transform.Translate(new Vector2(x * 0.7f,y) * ( speed * Time.deltaTime * 0.5f));
 
+        if (transform.position.x < -8.2f)
+        {
+            transform.position = new Vector2(-8.2f, transform.position.y);
+        }
+
+        if (transform.position.x > 8.2f)
+        {
+            transform.position = new Vector2(8.2f, transform.position.y);
+        }
+
+        if (transform.position.y < -4.25f)
+        {
+            transform.position = new Vector2(transform.position.x, -4.25f);
+        }
+
+        if (transform.position.y > 4.25f)
+        {
+            transform.position = new Vector2(transform.position.x, 4.25f);
+        }
+
     }
 }
