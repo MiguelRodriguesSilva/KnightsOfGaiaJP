@@ -404,9 +404,12 @@ MonoBehaviour:
   levelsController: {fileID: 1471837532}
   arvores: {fileID: 158618115}
   velocSubindo: 5
+  l1: 02000000
+  l2: 01000000
+  l3: 03000000
   ceu: {fileID: 21745212}
-  levels:
-  - {fileID: 11400000, guid: 791d320f5d5ba2249a53de9524d3c6aa, type: 2}
+  spawns: {fileID: 1220119710}
+  conti: {fileID: 1471837534}
 --- !u!1 &118862202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,9 +2525,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce699eb99e96e7545b2f3841ed25b83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  qualInimigo: {fileID: 6362957215153288106, guid: 62fe243298616684eae5d11f9cef5b5b, type: 3}
-  inimigosRestantes: 5
+  qualInimigo:
+  - {fileID: 6362957215153288106, guid: 62fe243298616684eae5d11f9cef5b5b, type: 3}
+  inimigosRestantes: 00000000
   quantidadeInimigosJuntos: 0
+  cdSpawn: 5
 --- !u!4 &1220119711
 Transform:
   m_ObjectHideFlags: 0

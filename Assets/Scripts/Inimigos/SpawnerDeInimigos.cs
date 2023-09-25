@@ -32,7 +32,7 @@ public class SpawnerDeInimigos : MonoBehaviour
             tempoSpawn = 0;
             localSpawn = Random.Range(4 , -4);
             if (inimigosRestantes[0] > 0){
-                Instantiate(qualInimigo, new Vector3(transform.position.x, localSpawn, 0), Quaternion.identity);
+                Instantiate(qualInimigo[0], new Vector3(transform.position.x, localSpawn, 0), Quaternion.identity);
                 inimigosRestantes[0] -= 1;
             }
             

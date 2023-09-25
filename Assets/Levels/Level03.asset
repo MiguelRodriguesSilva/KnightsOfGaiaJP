@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d7b06ffd3c496543b6dcaea3cf80cfb, type: 3}
-  m_Name: Level01
+  m_Name: Level03
   m_EditorClassIdentifier: 
   idInimigo: 00000000
-  quantiInimigos: 02000000
+  quantiInimigos: 01000000

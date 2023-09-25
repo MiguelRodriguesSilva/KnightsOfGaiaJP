@@ -7,9 +7,10 @@ public class TrocaCenario : MonoBehaviour
     public static int levelAtual;
     [SerializeField] GameObject levelsController, arvores;
     [SerializeField] float velocSubindo;
+    [SerializeField] int[] l1, l2, l3;
     [SerializeField] BackGround ceu;
-    [SerializeField] Level01[] levels;
     [SerializeField] SpawnerDeInimigos spawns;
+    [SerializeField] ContagemInimigos conti;
     private float speedCeu;
 
     private void Awake()
@@ -21,6 +22,7 @@ public class TrocaCenario : MonoBehaviour
     {
         arvores.SetActive(false);
         levelAtual = 1;
+        TrocarLevel(1);
         speedCeu = ceu.velocidade;
     }
     public void TrocarLevel(int levelNovo)
@@ -29,19 +31,23 @@ public class TrocaCenario : MonoBehaviour
         if (levelAtual == 1)
         {
             arvores.SetActive(false);
-            spawns.
+            spawns.inimigosRestantes[0] = 3;
+            conti.inimNecessario[0] = 3;
+
         }
 
         if (levelAtual == 2)
         {
             Debug.Log("Teoricamente deu certo");
             StartCoroutine(Level2());
+
         }
 
         if (levelAtual == 3)
         {
             StartCoroutine(Level3());
             arvores.SetActive(true);
+
         }
         levelsController.GetComponent<ContagemInimigos>().ResetQuanti();
     }
@@ -59,6 +65,13 @@ public class TrocaCenario : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
             
         }
+        for (int i = 0; i < l2.Length; i++)
+        {
+            spawns.inimigosRestantes[i] = l2[i];
+            conti.inimNecessario[i] = l2[i];
+
+        }
+        
     }
 
     IEnumerator Level3()
@@ -72,6 +85,13 @@ public class TrocaCenario : MonoBehaviour
                 ceu.velocidade = 0.1f;
             }
             yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        for (int i = 0; i < l2.Length; i++)
+        {
+            spawns.inimigosRestantes[i] = l3[i];
+            conti.inimNecessario[i] = l3[i];
+
         }
     }
 
