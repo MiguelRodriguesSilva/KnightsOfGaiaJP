@@ -5,17 +5,10 @@ using UnityEngine;
 public class PlayerVida : MonoBehaviour
 {
     public float vidaAtual, vidaMax;
-    private VidaHUD hud;
+    [SerializeField] VidaHUD hud;
     [SerializeField] float tempoInvuneravel;
-    private Animator barraDeVida;
+    [SerializeField] Animator barraDeVida;
     private float contador;
-
-
-    private void Awake()
-    {
-        hud = FindObjectOfType<VidaHUD>();
-        barraDeVida = GameObject.Find("VidaPlayer").GetComponent<Animator>();
-    }
 
     private void Start()
     {

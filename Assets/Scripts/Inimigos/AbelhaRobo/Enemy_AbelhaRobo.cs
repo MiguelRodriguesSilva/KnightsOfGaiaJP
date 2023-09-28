@@ -11,13 +11,11 @@ public class Enemy_AbelhaRobo : MonoBehaviour
     public bool podeAtirar = false;
     public float contiAcao = 0;
     public int qualAcao = 0;
-    private DanoEnemy danoAbelha;
-    private Enemy_AbelhaRobo_Avanco avanco;
+    [SerializeField] DanoEnemy danoAbelha;
+    [SerializeField] Enemy_AbelhaRobo_Avanco avanco;
 
     private void Awake()
     {
-        avanco = GetComponent<Enemy_AbelhaRobo_Avanco>();
-        danoAbelha = GetComponent<DanoEnemy>();
         danoEncostar = danoAbelha.danoEncostar;
     }
 
@@ -62,7 +60,6 @@ public class Enemy_AbelhaRobo : MonoBehaviour
         GetComponent<Animator>().Play("AtirandoEspinho");
         if (podeAtirar == true)
         {
-            Debug.Log("Atirou o ferrao");
             Vector3 player = FindObjectOfType<PlayerMove>().transform.position;
             Vector2 direction = (player - transform.position).normalized;
             GameObject ferraoInst;

@@ -10,16 +10,14 @@ public class VidaEnemy : MonoBehaviour
     [SerializeField] string resisTipo, fraqTipo;
 
     [Header("Identificacao")]
-    [SerializeField] string qualInimigo;
     [SerializeField] int indexInimigo;
     [SerializeField] public bool boss = false;
     public Sprite faceInimigo;
-    [SerializeField] VidaInimigoHUD hud;
+    public VidaInimigoHUD hud;
 
 
     private void Start()
     {
-        hud = FindObjectOfType<VidaInimigoHUD>();
         vidaAtual = vidaMax;
     }
 
@@ -40,7 +38,7 @@ public class VidaEnemy : MonoBehaviour
             vidaAtual -= dano;
         }
         VerificacaoMorte();
-        hud.MostrarVida(boss, qualInimigo, faceInimigo, vidaMax, vidaAtual);
+        hud.MostrarVida(boss, faceInimigo, vidaMax, vidaAtual);
 
     }
 

@@ -6,13 +6,8 @@ public class ContagemInimigos : MonoBehaviour
 {
     public int[] inimigos, inimNecessario;
     private int level;
-    private TrocaCenario troca;
+    [SerializeField] TrocaCenario troca;
     // 0 = Abelhas robos
-
-    private void Awake()
-    {
-        troca = FindObjectOfType<TrocaCenario>();
-    }
 
     private void Start()
     {
@@ -28,7 +23,7 @@ public class ContagemInimigos : MonoBehaviour
                 value += 1;
             }
         }
-        if (value == 2)
+        if (value == inimigos.Length)
         {
             level += 1;
             troca.TrocarLevel(level);

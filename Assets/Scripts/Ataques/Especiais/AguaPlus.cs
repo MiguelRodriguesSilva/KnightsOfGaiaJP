@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class AguaPlus : MonoBehaviour
 {
-    private PlayerVida player;
+    [SerializeField] PlayerVida player;
     [SerializeField] int curaTotal, curaPorSegundo;
-
-    private void Awake()
-    {
-        player = FindObjectOfType<PlayerVida>();
-    }
 
     private void Start()
     {

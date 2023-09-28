@@ -5,14 +5,8 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] float speed;
-    private PlayerAction action;
+    [SerializeField] PlayerAction action;
     private float x, y;
-    private void Awake()
-    {
-
-        action = GetComponent<PlayerAction>();
-
-    }
 
     private void FixedUpdate()
     {
@@ -36,9 +30,9 @@ public class PlayerMove : MonoBehaviour
             transform.position = new Vector2(transform.position.x, -4.25f);
         }
 
-        if (transform.position.y > 4.25f)
+        if (transform.position.y > 2.81f)
         {
-            transform.position = new Vector2(transform.position.x, 4.25f);
+            transform.position = new Vector2(transform.position.x, 2.81f);
         }
 
     }

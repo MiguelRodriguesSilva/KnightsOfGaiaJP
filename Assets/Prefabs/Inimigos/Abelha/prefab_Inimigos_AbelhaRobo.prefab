@@ -628,6 +628,8 @@ MonoBehaviour:
   podeAtirar: 0
   contiAcao: 0
   qualAcao: 0
+  danoAbelha: {fileID: 600739242882795881}
+  avanco: {fileID: 2374594848102183447}
 --- !u!114 &5092882364623656418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,6 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Avanco: 20
+  controller: {fileID: 5673636953784716216}
 --- !u!95 &4349200997156889421
 Animator:
   serializedVersion: 5

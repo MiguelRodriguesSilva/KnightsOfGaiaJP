@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716c34b6b77c7bb40992c6b1c254edae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  danoFerrao: {fileID: 1691632744634076047}
   danoDoFerrao: 0
   speed: 25
   direction: {x: 0, y: 0}

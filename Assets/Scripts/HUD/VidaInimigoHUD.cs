@@ -15,7 +15,7 @@ public class VidaInimigoHUD : MonoBehaviour
     {
         painel.SetActive(false);
     }
-    public void MostrarVida(bool EBoss, string nomeInimigo, Sprite face, float Max, float Atual)
+    public void MostrarVida(bool EBoss, Sprite face, float Max, float Atual)
     {
         if (EBoss == false)
         {
@@ -24,21 +24,9 @@ public class VidaInimigoHUD : MonoBehaviour
                 StopCoroutine(contagem);
             }
             painel.SetActive(true);
-            nome.text = nomeInimigo;
             faceInimigo.sprite = face;
             float porcent = barraFundo.localScale.x / Max;
             barraVida.localScale = new Vector2(porcent * Atual, barraVida.localScale.y);
-            contagem = StartCoroutine(ContagemSumir());
         }
-    }
-
-    IEnumerator ContagemSumir()
-    {
-        yield return new WaitForSeconds(3f);
-        painel.SetActive(false);
-        barraVida.localScale = barraFundo.localScale;
-        faceInimigo.sprite = null;
-        nome.text = "";
-
     }
 }

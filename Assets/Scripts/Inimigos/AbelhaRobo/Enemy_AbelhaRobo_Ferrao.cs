@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Enemy_AbelhaRobo_Ferrao : MonoBehaviour
 {
-    private DanoEnemy danoFerrao;
+    [SerializeField] DanoEnemy danoFerrao;
     public float danoDoFerrao, speed;
     public Vector2 direction;
     private Vector3 player;
-    private void Awake()
-    {
-        danoFerrao = GetComponent<DanoEnemy>();
-    }
 
     private void Start()
     {

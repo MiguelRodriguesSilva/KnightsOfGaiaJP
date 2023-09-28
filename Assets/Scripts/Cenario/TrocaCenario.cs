@@ -13,11 +13,6 @@ public class TrocaCenario : MonoBehaviour
     [SerializeField] ContagemInimigos conti;
     private float speedCeu;
 
-    private void Awake()
-    {
-        levelsController = GameObject.Find("Levels");
-    }
-
     private void Start()
     {
         arvores.SetActive(false);
@@ -31,8 +26,8 @@ public class TrocaCenario : MonoBehaviour
         if (levelAtual == 1)
         {
             arvores.SetActive(false);
-            spawns.inimigosRestantes[0] = 3;
-            conti.inimNecessario[0] = 3;
+            spawns.inimigosRestantes[0] = l1[0];
+            conti.inimNecessario[0] = l1[0];
 
         }
 
@@ -54,7 +49,7 @@ public class TrocaCenario : MonoBehaviour
 
     IEnumerator Level2()
     {
-        while (transform.position.y > -13f)
+        while (transform.position.y > -14.4f)
         {
             transform.Translate(Vector2.down * velocSubindo * Time.deltaTime);
             ceu.velocidade += Time.deltaTime;
@@ -76,7 +71,7 @@ public class TrocaCenario : MonoBehaviour
 
     IEnumerator Level3()
     {
-        while (transform.position.y < 1f)
+        while (transform.position.y < -0.7f)
         {
             transform.Translate(Vector2.up * velocSubindo * Time.deltaTime);
             ceu.velocidade -= Time.deltaTime;

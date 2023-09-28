@@ -11,17 +11,17 @@ public class PlayerAttack : MonoBehaviour
      * 3 = folha*/
 
     public GameObject[] tipoAtaque, ataqueEspecial, ataqueNormal;
-    private PlayerAction action;
+    [SerializeField] PlayerAction action;
     private float trocaCont, tiroCont;
     [SerializeField] float[] cooldownTiros;
     public bool podeAtirar = true;
-    [SerializeField] GameObject tiro;
-    private SpriteRenderer sr;
+    private GameObject tiro;
+    [SerializeField] SpriteRenderer sr;
     [SerializeField] Sprite[] srElements;
 
     [SerializeField] float specialAttack;
-    private GameObject barraAttackPai;
-    private Transform barraAttack;
+    [SerializeField] GameObject barraAttackPai;
+    [SerializeField] Transform barraAttack;
     private float porcent;
     public float specialATQConti;
     private bool tiroEspecial = false;
@@ -30,11 +30,6 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         podeAtirar = true;
-        action = FindObjectOfType<PlayerAction>();
-        sr = GetComponent<SpriteRenderer>();
-
-        barraAttackPai = GameObject.Find("BarraAttackPai");
-        barraAttack = GameObject.Find("BarraAttack").transform;
         porcent = barraAttack.localScale.x / specialAttack;
     }
 
@@ -127,14 +122,6 @@ public class PlayerAttack : MonoBehaviour
         if (tiro == null)
         {
             podeAtirar = true;
-        }
-
-        if (tiro != null)
-        {
-            if (tiro.GetComponent<AguaPlus>() == true)
-            {
-            tiro = null;
-            }
         }
         
     }

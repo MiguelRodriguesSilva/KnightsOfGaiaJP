@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class VidaHUD : MonoBehaviour
 {
-    private PlayerVida player;
+    [SerializeField] PlayerVida player;
     private Vector2 tamanhoBase;
-    private Transform barraVida;
+    [SerializeField] Transform barraVida;
+    [SerializeField] Transform tamanhoBTrans;
     private float porcent;
 
     private void Awake()
     {
-        player = FindObjectOfType<PlayerVida>();
-        barraVida = GameObject.Find("BarraDeVidaPlayer").transform;
-        tamanhoBase = GameObject.Find("BarraFundoPlayer").transform.localScale;
+        tamanhoBase = tamanhoBTrans.localScale;
         porcent = tamanhoBase.x / player.vidaMax;
     }
 

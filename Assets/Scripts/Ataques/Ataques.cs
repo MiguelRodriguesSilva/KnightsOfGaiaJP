@@ -8,20 +8,21 @@ public class Ataques : MonoBehaviour
     [SerializeField] string qualAtaque;
     [SerializeField] bool constante;
     private VidaEnemy inimigo;
-    private PlayerAttack player;
-
+    [SerializeField] PlayerAttack player;
 
     private void Awake()
     {
-        player = FindObjectOfType<PlayerAttack>();
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO.TryGetComponent<PlayerAttack>(out PlayerAttack pa))
+        {
+            player = pa;
+        }
     }
-
 
     private void OnTriggerStay2D(Collider2D other) {
         if (other.tag == "Enemy")
-        {
-            inimigo = other.GetComponent<VidaEnemy>();
-            if (inimigo != null)
+        { 
+            if (other.TryGetComponent<VidaEnemy>(out VidaEnemy inimigo))
             {
                 if (constante == true)
                 {
@@ -29,7 +30,6 @@ public class Ataques : MonoBehaviour
                     player.specialATQConti += quantiEspecial * Time.deltaTime;
 
                 }
-                
             }
 
         }
@@ -39,8 +39,7 @@ public class Ataques : MonoBehaviour
           
         if (other.tag == "Enemy")
         {
-            inimigo = other.GetComponent<VidaEnemy>();
-            if (inimigo != null)
+            if (other.TryGetComponent<VidaEnemy>(out VidaEnemy inimigo))
             {
                 if (constante == false)
                 {
@@ -48,7 +47,6 @@ public class Ataques : MonoBehaviour
                     player.specialATQConti += quantiEspecial;
 
                 }
-             
             }
 
         }

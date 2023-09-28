@@ -8,12 +8,8 @@ public class Enemy_AbelhaRobo_Avanco : MonoBehaviour
     private bool possoAvancar = false;
     private bool possoRecuar = false;
     private Vector3 player, direction, posicaoInicial;
-    private Enemy_AbelhaRobo controller;
+    [SerializeField] Enemy_AbelhaRobo controller;
 
-    private void Awake()
-    {
-        controller = GetComponent<Enemy_AbelhaRobo>();
-    }
     private void OnEnable()
     {
         possoAvancar = false;

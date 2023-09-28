@@ -5,26 +5,34 @@ using UnityEngine;
 public class Chamas : MonoBehaviour
 {
     float TempoVivo = 0f;
-    public float rotacao;
-    private PlayerAction action;
+    public float rotacao, limiteTempo = 4f;
+    private float cont;
+    [SerializeField] PlayerAction action;
+    private GameObject player;
 
     private void Awake()
     {
-        action = FindObjectOfType<PlayerAction>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player.TryGetComponent<PlayerAction>(out PlayerAction actions))
+        {
+            action = actions;
+        }
     }
- 
     void Start()
     {
         TempoVivo = Time.time + 1.2f;
-        this.transform.parent = GameObject.Find("Jogador").transform;
+        transform.parent = player.transform;
         rotacao = 1f;
+        cont = 0;
     }
 
     
     void FixedUpdate()
     {
+        cont += Time.deltaTime;
         rotacao = rotacao + 0.5f * Time.deltaTime;
         if (rotacao > 1.5f){
+
 
             rotacao = 1.5f;
         }
@@ -47,9 +55,14 @@ public class Chamas : MonoBehaviour
             action.input.TrocarElement.Pedra.WasPressedThisFrame())
         {
 
-            TempoVivo = Time.time - 2f;
+            Destroy(this.gameObject);
         
         }        
+
+        if (cont > limiteTempo)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }

@@ -9,15 +9,15 @@ public class SpawnerDeInimigos : MonoBehaviour
     public int quantidadeInimigosJuntos;
     [SerializeField] float cdSpawn;
     int localSpawn;
+
     float tempoSpawn;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] VidaInimigoHUD HUDInimigo;
+
+    private void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         tempoSpawn = tempoSpawn + cdSpawn * Time.deltaTime;
         SpawnAbelha();
@@ -26,19 +26,30 @@ public class SpawnerDeInimigos : MonoBehaviour
     public void SpawnAbelha()
     {
         
-        if (tempoSpawn > 3)
+        if (tempoSpawn > cdSpawn)
         {
-            int ultimoSpawn = localSpawn;
-            tempoSpawn = 0;
-            localSpawn = Random.Range(4 , -4);
-            if (inimigosRestantes[0] > 0){
-                Instantiate(qualInimigo[0], new Vector3(transform.position.x, localSpawn, 0), Quaternion.identity);
-                inimigosRestantes[0] -= 1;
-            }
-            
-                   
+                if (inimigosRestantes[0] > 0)
+                {
+                    tempoSpawn = 0;
+                    localSpawn = Random.Range(2, -4);
+                    GameObject inimigo;
+                    if (GameObject.FindGameObjectsWithTag("Enemy") != null)
+                {
+                    if (GameObject.FindGameObjectsWithTag("Enemy").Length < 3)
+                    {
+                        inimigo = Instantiate(qualInimigo[0], new Vector3(transform.position.x, localSpawn, 0), Quaternion.identity);
+                        if (inimigo.TryGetComponent<VidaEnemy>(out VidaEnemy ve))
+                        {
+                            ve.hud = HUDInimigo;
+                        }
+                        inimigosRestantes[0] -= 1;
+                    }
+                }
+                    
+                    
+                }
+
         }
 
-        
     }
 }
