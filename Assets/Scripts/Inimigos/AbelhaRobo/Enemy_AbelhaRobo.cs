@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy_AbelhaRobo : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class Enemy_AbelhaRobo : MonoBehaviour
     public int qualAcao = 0;
     [SerializeField] DanoEnemy danoAbelha;
     [SerializeField] Enemy_AbelhaRobo_Avanco avanco;
+    [SerializeField] VidaEnemy vidaAbelha;
+    [SerializeField] GameObject Smoke;
+    [SerializeField] private MovEnemy movimento;
+    private bool estaMorto = false;
 
     private void Awake()
     {
@@ -30,7 +35,27 @@ public class Enemy_AbelhaRobo : MonoBehaviour
     {
         contiAcao += Time.deltaTime;
         AcaoAbelha();
+        if (estaMorto == true)
+        {
+            GetComponent<Animator>().Play("Morte");
+            Smoke.SetActive(true);
+            transform.Translate(Vector2.one * -1f * 3f * Time.deltaTime);
+            if (transform.position.y < -6.3f)
+            {
+                Destroy(movimento);
+                Destroy(this.gameObject);
+            }
+        } 
 
+    }
+
+    private void Update()
+    {
+        if (vidaAbelha.vidaAtual == 0)
+        {
+            estaMorto = true;
+            contiAcao = 0;
+        }
     }
 
     void AcaoAbelha()

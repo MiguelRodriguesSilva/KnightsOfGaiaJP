@@ -9,6 +9,8 @@ public class PlayerVida : MonoBehaviour
     [SerializeField] float tempoInvuneravel;
     [SerializeField] Animator barraDeVida;
     private float contador;
+    [SerializeField] GameObject explosao;
+    [SerializeField] private PlayerMove move;
 
     private void Start()
     {
@@ -62,5 +64,17 @@ public class PlayerVida : MonoBehaviour
         {
             vidaAtual = 0;
         }
+
+        if (vidaAtual == 0)
+        {
+            MortePlayer();
+        }
+    }
+
+    void MortePlayer()
+    {
+        explosao.SetActive(true);
+        GetComponent<SpriteRenderer>().enabled = false;
+        move.enabled = false;
     }
 }
