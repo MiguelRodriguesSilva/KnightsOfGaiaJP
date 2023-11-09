@@ -45,8 +45,6 @@ public class SpawnerDeInimigos : MonoBehaviour
                         inimigosRestantes[0] -= 1;
                     }
                 }
-                    
-                    
                 }
 
         }

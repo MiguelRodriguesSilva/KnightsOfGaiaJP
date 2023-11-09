@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerVida : MonoBehaviour
 {
@@ -76,5 +77,13 @@ public class PlayerVida : MonoBehaviour
         explosao.SetActive(true);
         GetComponent<SpriteRenderer>().enabled = false;
         move.enabled = false;
+        StartCoroutine(MortePlayerTempo());
+        GetComponent<PlayerAction>().enabled = false;
+    }
+
+    IEnumerator MortePlayerTempo()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Menu");
     }
 }

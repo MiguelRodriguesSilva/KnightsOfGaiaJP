@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.unity.2d.animation": {
-      "version": "7.0.10",
+      "version": "7.0.11",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -113,7 +113,7 @@
       "depth": 0,
       "source": "builtin",
       "dependencies": {
-        "com.unity.2d.animation": "7.0.10",
+        "com.unity.2d.animation": "7.0.11",
         "com.unity.2d.pixel-perfect": "5.0.3",
         "com.unity.2d.psdimporter": "6.0.7",
         "com.unity.2d.sprite": "1.0.0",
@@ -172,8 +172,6 @@
       },
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
-=======
     "com.unity.render-pipelines.core": {
       "version": "12.1.12",
       "depth": 1,
@@ -200,7 +198,6 @@
         "com.unity.searcher": "4.9.1"
       }
     },
->>>>>>> 5127da5d47e32cb4c3a8872889857a4a6868d1b5
     "com.unity.test-framework": {
       "version": "1.1.33",
       "depth": 0,

@@ -34,8 +34,14 @@ public class Enemy_AbelhaRobo : MonoBehaviour
     private void FixedUpdate()
     {
         contiAcao += Time.deltaTime;
-        AcaoAbelha();
-        if (estaMorto == true)
+
+        if (vidaAbelha.estaMorto == false)
+        {
+            AcaoAbelha();
+        }
+        
+
+        if (vidaAbelha.estaMorto == true)
         {
             GetComponent<Animator>().Play("Morte");
             Smoke.SetActive(true);
@@ -43,6 +49,7 @@ public class Enemy_AbelhaRobo : MonoBehaviour
             if (transform.position.y < -6.3f)
             {
                 Destroy(movimento);
+                Destroy(avanco);
                 Destroy(this.gameObject);
             }
         } 
@@ -51,7 +58,7 @@ public class Enemy_AbelhaRobo : MonoBehaviour
 
     private void Update()
     {
-        if (vidaAbelha.vidaAtual == 0)
+        if (vidaAbelha.estaMorto == true)
         {
             estaMorto = true;
             contiAcao = 0;

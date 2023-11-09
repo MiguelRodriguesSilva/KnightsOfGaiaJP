@@ -12,6 +12,7 @@ public class VidaEnemy : MonoBehaviour
     [Header("Identificacao")]
     [SerializeField] int indexInimigo;
     [SerializeField] public bool boss = false;
+    [SerializeField] public bool estaMorto = false;
     public Sprite faceInimigo;
     public VidaInimigoHUD hud;
 
@@ -47,13 +48,18 @@ public class VidaEnemy : MonoBehaviour
 
         if (podeSerDestruido == true)
         {
-            if (vidaAtual < 0)
+            if (vidaAtual < 0 && estaMorto == false)
             {
                 ContagemInimigos contagem = FindObjectOfType<ContagemInimigos>();
                 contagem.inimigos[indexInimigo] += 1;
                 contagem.Verificacao();
                 vidaAtual = 0;
+                estaMorto = true;
                 //Destroy(this.gameObject);
+            }
+            if (vidaAtual < 0)
+            {
+                vidaAtual = 0;
             }
 
         }

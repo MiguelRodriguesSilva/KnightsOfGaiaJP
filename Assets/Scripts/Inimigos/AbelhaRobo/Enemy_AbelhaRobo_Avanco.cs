@@ -9,6 +9,7 @@ public class Enemy_AbelhaRobo_Avanco : MonoBehaviour
     private bool possoRecuar = false;
     private Vector3 player, direction, posicaoInicial;
     [SerializeField] Enemy_AbelhaRobo controller;
+    [SerializeField] VidaEnemy vida;
 
     private void OnEnable()
     {
@@ -31,28 +32,32 @@ public class Enemy_AbelhaRobo_Avanco : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (possoAvancar == true)
+        if (vida.estaMorto == false)
         {
-            transform.Translate(direction * (Avanco * Time.deltaTime));
-            if (transform.position.x < -9.5f)
+            if (possoAvancar == true)
             {
-                possoAvancar = false;
-                StartCoroutine(EsperaRecuar());
+                transform.Translate(direction * (Avanco * Time.deltaTime));
+                if (transform.position.x < -9.5f)
+                {
+                    possoAvancar = false;
+                    StartCoroutine(EsperaRecuar());
+                }
             }
-        }
 
-        if (possoRecuar == true)
-        {
-            transform.Translate(direction * (7 * Time.deltaTime));
-            if (transform.position.x > posicaoInicial.x)
+            if (possoRecuar == true)
             {
-                controller.MudarTempo();
-                controller.contiAcao = 0;
-                controller.qualAcao = 0;
-                GetComponent<Animator>().Play("DepoisDeRetornar");
-                enabled = false;
+                transform.Translate(direction * (7 * Time.deltaTime));
+                if (transform.position.x > posicaoInicial.x)
+                {
+                    controller.MudarTempo();
+                    controller.contiAcao = 0;
+                    controller.qualAcao = 0;
+                    GetComponent<Animator>().Play("DepoisDeRetornar");
+                    enabled = false;
+                }
             }
         }
+        
     }
 
     IEnumerator EsperaRecuar()

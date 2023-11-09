@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TrocaCenario : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class TrocaCenario : MonoBehaviour
         {
             StartCoroutine(Level3());
             arvores.SetActive(true);
+
+        }
+        if (levelAtual == 4)
+        {
+            StartCoroutine(FinalDoJogo());
 
         }
         levelsController.GetComponent<ContagemInimigos>().ResetQuanti();
@@ -90,8 +96,9 @@ public class TrocaCenario : MonoBehaviour
         }
     }
 
-    private void Update()
+    IEnumerator FinalDoJogo()
     {
-        
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Final");
     }
 }

@@ -9,6 +9,7 @@ public class AguaPlus : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerVida>();
         StartCoroutine(VidaPorSegundo());
     }
 

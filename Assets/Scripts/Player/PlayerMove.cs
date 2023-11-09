@@ -34,5 +34,14 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, 2.81f);
         }
+
+    }
+
+    public IEnumerator Velocidade()
+    {
+        speed = 30f;
+        yield return new WaitForSeconds(7f);
+
+        speed = 15f;
     }
 }

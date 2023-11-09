@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Level03
   m_EditorClassIdentifier: 
   idInimigo: 00000000
-  quantiInimigos: 01000000
+  quantiInimigos: 04000000
