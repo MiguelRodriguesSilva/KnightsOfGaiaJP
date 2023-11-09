@@ -34,6 +34,5 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, 2.81f);
         }
-
     }
 }
