@@ -7,6 +7,10 @@
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.inputsystem": "1.7.0",
     "com.unity.postprocessing": "3.2.2",
+<<<<<<< HEAD
+=======
+    "com.unity.shadergraph": "12.1.12",
+>>>>>>> 5127da5d47e32cb4c3a8872889857a4a6868d1b5
     "com.unity.test-framework": "1.1.33",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.6.5",

@@ -6,7 +6,7 @@ public class VidaEnemy : MonoBehaviour
 {
     [Header("Valores da Vida")]
     [SerializeField] bool podeSerDestruido = true;
-    [SerializeField] float vidaMax, vidaAtual, resisQuant, fraqQuant;
+    [SerializeField] public float vidaMax, vidaAtual, resisQuant, fraqQuant;
     [SerializeField] string resisTipo, fraqTipo;
 
     [Header("Identificacao")]
@@ -53,7 +53,7 @@ public class VidaEnemy : MonoBehaviour
                 contagem.inimigos[indexInimigo] += 1;
                 contagem.Verificacao();
                 vidaAtual = 0;
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
             }
 
         }
