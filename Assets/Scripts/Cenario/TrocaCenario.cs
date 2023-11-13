@@ -34,7 +34,6 @@ public class TrocaCenario : MonoBehaviour
 
         if (levelAtual == 2)
         {
-            Debug.Log("Teoricamente deu certo");
             StartCoroutine(Level2());
 
         }

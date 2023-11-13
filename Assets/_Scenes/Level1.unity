@@ -7086,6 +7086,7 @@ MonoBehaviour:
   barraDeVida: {fileID: 0}
   explosao: {fileID: 350347506}
   move: {fileID: 1022401792}
+  estaComEscudo: 0
 --- !u!114 &1022401795
 MonoBehaviour:
   m_ObjectHideFlags: 0

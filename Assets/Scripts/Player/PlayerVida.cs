@@ -12,6 +12,7 @@ public class PlayerVida : MonoBehaviour
     private float contador;
     [SerializeField] GameObject explosao;
     [SerializeField] private PlayerMove move;
+    public bool estaComEscudo = false;
 
     private void Start()
     {
@@ -40,8 +41,12 @@ public class PlayerVida : MonoBehaviour
     {
         if (!(contador < tempoInvuneravel))
         {
-            vidaAtual -= dano;
-            VerificacaoVida();
+            if (estaComEscudo == false)
+            {
+                vidaAtual -= dano;
+                VerificacaoVida();
+            }
+            
         }
         
     }

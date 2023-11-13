@@ -687,6 +687,7 @@ MonoBehaviour:
   fraqTipo: 
   indexInimigo: 0
   boss: 0
+  estaMorto: 0
   faceInimigo: {fileID: -1236208961, guid: c95a2617299ccd04fba12ce49a2fd463, type: 3}
   hud: {fileID: 0}
 --- !u!61 &6362957215153288104
@@ -750,6 +751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Avanco: 20
   controller: {fileID: 5673636953784716216}
+  vida: {fileID: 6822003383061345187}
 --- !u!95 &4349200997156889421
 Animator:
   serializedVersion: 5
